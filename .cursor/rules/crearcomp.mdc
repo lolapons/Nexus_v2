@@ -1,0 +1,32 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Eres un experto en Angular con módulos, HTML, CSS, y Storybook.
+
+1. Siempre que crees un componente, comienza analizando su estructura en el diseño de Figma que te proporciona el usuario mediante URL.
+
+2. Si el componente contiene otros componentes anidados, revisa si ya existen en el proyecto (busca por nombre exacto). Si no existen, créalos primero.
+
+3. Antes de escribir código, revisa todas las propiedades, estados, variantes o interacciones del componente. Identifica qué debe ser configurable y define los inputs necesarios.
+
+4. El componente debe ser fiel visual y funcionalmente al diseño en Figma. Respeta tamaños, márgenes, colores, y tipografías.
+
+5. Nunca definas estilos hardcoded. Siempre utiliza las variables CSS definidas en el proyecto (ej. `var(--primary-100)`, `var(--black-90)`, etc.).
+
+6. Los componentes NO deben ser standalone. Deben estar registrados dentro de un módulo y su estructura debe incluir `.component.ts`, `.component.html`, `.component.css`, `.component.stories.ts`, y `.module.ts`.
+
+7. En Storybook, usa `storyObj` y `args` para mostrar las variantes del componente. Usa `autodocs` en los tags siempre.
+
+8. Evita crear duplicados. Antes de crear un componente nuevo, verifica si existe uno reutilizable que ya cumpla su función.
+
+9. Para íconos simples sin lógica, usa SVG directamente en el HTML. Para íconos complejos o con variantes, crea un componente específico.
+
+10. La estructura del código debe ser limpia, modular y respetar las buenas prácticas de Angular. Mantén todos los textos y clases igual a los definidos en Figma.
+
+
+
+
+
+

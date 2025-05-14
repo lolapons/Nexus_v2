@@ -1,0 +1,85 @@
+/* Base común para todos los estados */
+.navbar-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 48px;
+  width: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s, box-shadow 0.3s, padding 0.3s;
+  overflow: visible;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+/* Contenedor del icono - común para todos los estados */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  flex-shrink: 0;
+  z-index: 15;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.icon-container svg {
+  width: 24px;
+  height: 24px;
+  transition: color 0.3s;
+  z-index: 20;
+}
+
+/* ESTADO 1: Default - Solo icono gris */
+.navbar-item:not(.selected):not(.hovering) .icon-container svg {
+  color: #53545C;
+}
+
+/* ESTADO 2: Hover - Extendido con fondo lila transparente */
+.navbar-item.hovering {
+  width: auto;
+  background-color: var(--primary-100);
+  padding-left: 48px;
+  padding-right: 24px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 24px 0 rgba(83, 71, 186, 0.12);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.navbar-item.hovering .icon-container svg {
+  color: #fff;
+}
+
+/* ESTADO 3: Selected - Solo icono con fondo lila sólido */
+.navbar-item.selected {
+  width: 48px;
+  background-color: var(--primary-100);
+}
+
+.navbar-item.selected .icon-container svg {
+  color: #fff;
+}
+
+/* Texto (visible solo en hover) */
+.label {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  opacity: 1;
+  z-index: 15;
+  color: #53545C;
+  transition: color 0.3s;
+}
+
+.navbar-item.hovering .label {
+  color: #fff;
+  opacity: 1;
+}
+
+/* No se necesita estilo específico para el texto en selected ya que no se muestra */ 

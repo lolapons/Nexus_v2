@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cuando analices un componente, identifica si hay algun componente hijo y busca si ese componente hijo esta por el proyecto de figma,
+si esta, haz primero el componente hijo y luego el padre.
+
+## Configuración del Entorno
+-- **NO HACER LOS COMPONENTES STANDALONE**
+Utiliza las varibles del proyecto SIEMPRE
+- **Frameworks**: Angular (con módulos), TypeScript, HTML, CSS, Storybook
+- **Estándares**: Código modular, reutilizable según mejores prácticas de Angular
+- **Idioma**: Siempre responder en español
+
+## Creación de Páginas desde Figma
+- **Análisis estructural**: Identificar componentes reutilizables en el diseño
+- **Nomenclatura fiel**: Usar nombres exactos de Figma para componentes e iconos
+- **Jerarquía clara**: Separar componentes por niveles (contenedores, botones, inputs, modales)
+- **Extracción precisa**: Obtener estilos, tamaños, márgenes, tipografías y colores del diseño
+- **Responsive**: Desarrollar componentes adaptables a cualquier tamaño de pantalla
+
+## Generación de Componentes
+- **Análisis de variables**: Asegurate de utilizar los estilos del proyecto y las variables. 
+- **Análisis de variantes**: Verificar Properties de Figma para identificar variantes
+- **Sin standalone**: Todos los componentes deben pertenecer a un módulo
+- **Evitar duplicados**: Verificar componentes existentes antes de crear nuevos
+- **Jerarquía anidada**: Para componentes anidados, crear o usar componentes existentes (para iconos sin estado, usar SVG directo)
+- **Interactividad**: Asegurar propiedades configurables e interacción adecuada
+- **Iconos**: Implementar como SVG
+- **Tipografía**: Importar fuentes necesarias en la aplicación
+- **Módulos**: Importar cada componente en el módulo principal
+
+## Estructura de Archivos por Componente
+- **HTML**: Estructura del componente
+- **CSS**: Estilos extraídos de Figma
+- **TS**: Lógica del componente
+- **stories.ts**: Configuración de Storybook con storyObj
+- **module.ts**: Definición del módulo contenedor
+
+## Configuración en Storybook
+- **StoryObj**: Definir variantes interactivas
+- **Args y Controls**: Hacer componentes configurables
+- **Autodocs**: Incluir siempre 'autodocs' en tags
+
+## Revisión Final
+- **Validación Figma**: Revisar diseño por páginas para asegurar fidelidad
+
+
+- **Estilos globales**: Crear carpeta para estilos generalizables por páginas

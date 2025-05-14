@@ -1,0 +1,21 @@
+<div class="progress-container">
+  <div class="progress-indicators">
+    <div 
+      *ngFor="let step of getStepsArray()" 
+      class="progress-item" 
+      [class.active]="isActive(step)" 
+      [class.filled]="isCompleted(step)">
+    </div>
+  </div>
+  
+  <div class="progress-spacers">
+    <ng-container *ngFor="let step of getStepsArray(); let i = index">
+      <ng-container *ngIf="i < totalSteps - 1">
+        <div 
+          class="progress-spacer"
+          [class.filled]="isCompleted(step + 1)">
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div> 

@@ -1,0 +1,39 @@
+/*paint style*/ 
+:root{
+  --grey: #e0e2e8;
+  --main-background: #f4f5f9;
+  --white: #ffffff;
+  --stroke: #f1f2f8;
+  --primary-100: #5347ba;
+  --primary-90: #665cc1;
+  --primary-80: #746bc7;
+  --primary-70: #827acd;
+  --primary-60: #9089d2;
+  --primary-50: #9e97d8;
+  --primary-40: #aca6dd;
+  --primary-30: #bab5e3;
+  --primary-20: #c8c4e9;
+  --primary-10: #d5d2ee;
+  --secondary-100: #6c969d;
+  --secondary-90: #789fa5;
+  --secondary-80: #85a8ad;
+  --secondary-70: #91b1b6;
+  --secondary-60: #9db9be;
+  --secondary-50: #a9c2c6;
+  --secondary-40: #b6cbce;
+  --secondary-30: #c2d3d6;
+  --secondary-20: #cedcde;
+  --secondary-10: #dae5e7;
+  --black-100: #1c1d22;
+  --black-90: #2b2c33;
+  --black-80: #32333a;
+  --black-70: #37383e;
+  --black-60: #44464d;
+  --black-50: #52545c;
+  --black-40: #6e6f79;
+  --black-30: #8a8c96;
+  --black-20: #a5a7b1;
+  --black-10: #bec0c9;
+  --action-green: #519c66;
+  --action-red: #cc5f5f;
+} 

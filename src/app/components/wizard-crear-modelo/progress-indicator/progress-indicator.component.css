@@ -1,0 +1,55 @@
+.progress-container {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.progress-indicators {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-item {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--light-gray);
+  transition: background-color 0.3s ease;
+}
+
+.progress-item.active {
+  background-color: var(--primary-100);
+}
+
+.progress-item.filled {
+  background-color: var(--primary-100);
+}
+
+.progress-spacers {
+  position: absolute;
+  top: 12px; /* Centrado verticalmente con respecto a los indicadores */
+  left: 24px; /* Ajuste para comenzar después del primer indicador */
+  right: 24px; /* Ajuste para terminar antes del último indicador */
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  width: calc(100% - 48px);
+}
+
+.progress-spacer {
+  flex: 1;
+  height: 4px;
+  background-color: var(--light-gray);
+  margin: 0 8px;
+  transition: background-color 0.3s ease;
+}
+
+.progress-spacer.filled {
+  background-color: var(--primary-100);
+} 

@@ -1,0 +1,204 @@
+<div class="wizard-container">
+  <!-- Paso 1: Bienvenido -->
+  <div *ngIf="estado === 'bienvenido'" class="wizard-step">
+    <h1 class="wizard-title">Bienvenido</h1>
+    
+    <div class="wizard-content">
+      <div class="wizard-header">
+        <app-progress-indicator [currentStep]="1" [totalSteps]="5"></app-progress-indicator>
+        <h2 class="wizard-subtitle">Crear un nuevo LLM</h2>
+      </div>
+      
+      <p class="wizard-description">
+        Configura un nuevo modelo de lenguaje para utilizarlo en tus agentes. Podrás seleccionar entre diferentes proveedores y personalizar su configuración.
+      </p>
+      
+      <div class="wizard-buttons">
+        <div></div> <!-- Espacio vacío para alineación -->
+        <app-button text="Comenzar" variant="primary" icon="arrow-right" iconPosition="right" (clicked)="avanzarPaso()"></app-button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Paso 2: Selección de modelo -->
+  <div *ngIf="estado === 'seleccion-modelo'" class="wizard-step">
+    <h1 class="wizard-title">Seleccionar modelo</h1>
+    
+    <div class="wizard-content">
+      <div class="wizard-header">
+        <app-progress-indicator [currentStep]="2" [totalSteps]="5"></app-progress-indicator>
+      </div>
+      
+      <h3 class="wizard-subtitle-2">Selecciona un proveedor de LLM</h3>
+      
+      <div class="provider-grid">
+        <app-provider-card 
+          providerName="OpenAI" 
+          [selected]="modeloData.proveedor === 'openai'"
+          (selectProvider)="seleccionarProveedor($event)">
+        </app-provider-card>
+        
+        <app-provider-card 
+          providerName="Anthropic" 
+          [selected]="modeloData.proveedor === 'anthropic'"
+          (selectProvider)="seleccionarProveedor($event)">
+        </app-provider-card>
+        
+        <app-provider-card 
+          providerName="Mistral" 
+          [selected]="modeloData.proveedor === 'mistral'"
+          (selectProvider)="seleccionarProveedor($event)">
+        </app-provider-card>
+        
+        <app-provider-card 
+          providerName="Gemini" 
+          [selected]="modeloData.proveedor === 'gemini'"
+          (selectProvider)="seleccionarProveedor($event)">
+        </app-provider-card>
+      </div>
+      
+      <h3 class="wizard-subtitle-2">Selecciona un modelo</h3>
+      
+      <div class="models-grid">
+        <app-model-card 
+          modelName="GPT-4o" 
+          [selected]="modeloData.modelo === 'gpt-4o'"
+          (selectModel)="seleccionarModelo($event)">
+        </app-model-card>
+        
+        <app-model-card 
+          modelName="GPT-4 Turbo" 
+          [selected]="modeloData.modelo === 'gpt-4-turbo'"
+          (selectModel)="seleccionarModelo($event)">
+        </app-model-card>
+        
+        <app-model-card 
+          modelName="GPT-3.5 Turbo" 
+          [selected]="modeloData.modelo === 'gpt-3.5-turbo'"
+          (selectModel)="seleccionarModelo($event)">
+        </app-model-card>
+        
+        <app-model-card 
+          modelName="GPT-4 Vision" 
+          [selected]="modeloData.modelo === 'gpt-4-vision'"
+          (selectModel)="seleccionarModelo($event)">
+        </app-model-card>
+      </div>
+      
+      <div class="wizard-buttons">
+        <app-button text="Atrás" variant="secondary" icon="arrow-left" iconPosition="left" (clicked)="retrocederPaso()"></app-button>
+        <app-button text="Siguiente" variant="primary" icon="arrow-right" iconPosition="right" (clicked)="avanzarPaso()"></app-button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Paso 3: Configuración del modelo -->
+  <div *ngIf="estado === 'configuracion-modelo'" class="wizard-step">
+    <h1 class="wizard-title">Configuración del modelo</h1>
+    
+    <div class="wizard-content">
+      <div class="wizard-header">
+        <app-progress-indicator [currentStep]="3" [totalSteps]="5"></app-progress-indicator>
+      </div>
+      
+      <h3 class="wizard-subtitle-2">Información del modelo</h3>
+      
+      <div class="form-group">
+        <label for="nombre-modelo">Nombre del modelo</label>
+        <input 
+          type="text" 
+          id="nombre-modelo" 
+          class="form-input" 
+          placeholder="Ej: Mi GPT-4 para Soporte"
+          [(ngModel)]="modeloData.nombre"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="descripcion-modelo">Descripción</label>
+        <textarea 
+          id="descripcion-modelo" 
+          class="form-textarea" 
+          placeholder="Describe para qué usarás este modelo"
+          [(ngModel)]="modeloData.descripcion"
+        ></textarea>
+      </div>
+      
+      <div class="wizard-buttons">
+        <app-button text="Atrás" variant="secondary" icon="arrow-left" iconPosition="left" (clicked)="retrocederPaso()"></app-button>
+        <app-button text="Siguiente" variant="primary" icon="arrow-right" iconPosition="right" (clicked)="avanzarPaso()"></app-button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Paso 4: Configuración de API -->
+  <div *ngIf="estado === 'configuracion-api'" class="wizard-step">
+    <h1 class="wizard-title">Configuración de API</h1>
+    
+    <div class="wizard-content">
+      <div class="wizard-header">
+        <app-progress-indicator [currentStep]="4" [totalSteps]="5"></app-progress-indicator>
+      </div>
+      
+      <h2 class="wizard-subtitle">Configuración de API para "{{modeloData.nombre || 'nombreLLM'}}"</h2>
+      
+      <div class="form-group">
+        <label for="url-api">Introduce la URL de API</label>
+        <input 
+          type="text" 
+          id="url-api" 
+          class="form-input" 
+          placeholder="https://your-resource-name.openai.azure.com/openai/deployments/your-deployment-name"
+          [(ngModel)]="modeloData.urlApi"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="clave-api">Introduce la clave de tu API</label>
+        <input 
+          type="password" 
+          id="clave-api" 
+          class="form-input" 
+          placeholder="sk-fakeOaiToken1234567890abcdefXYZ987654321"
+          [(ngModel)]="modeloData.claveApi"
+        >
+      </div>
+      
+      <p class="helper-text">Tu clave se almacenará de forma segura y nunca se compartirá.</p>
+      
+      <div class="wizard-buttons">
+        <app-button text="Atrás" variant="secondary" icon="arrow-left" iconPosition="left" (clicked)="retrocederPaso()"></app-button>
+        <app-button text="Siguiente" variant="primary" icon="arrow-right" iconPosition="right" (clicked)="avanzarPaso()"></app-button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Paso 5: Resumen -->
+  <div *ngIf="estado === 'resumen'" class="wizard-step">
+    <h1 class="wizard-title">Resumen</h1>
+    
+    <div class="wizard-content">
+      <div class="wizard-header">
+        <app-progress-indicator [currentStep]="5" [totalSteps]="5"></app-progress-indicator>
+      </div>
+      
+      <h3 class="wizard-subtitle-2">Resumen de la configuración</h3>
+      
+      <div class="summary-box">
+        <pre>{{jsonResumen}}</pre>
+      </div>
+      
+      <div class="info-box">
+        <p>
+          Al finalizar, este modelo estará disponible para ser utilizado en tus agentes. 
+          Podrás editar esta configuración más adelante desde la sección de modelos.
+        </p>
+      </div>
+      
+      <div class="wizard-buttons">
+        <app-button text="Atrás" variant="secondary" icon="arrow-left" iconPosition="left" (clicked)="retrocederPaso()"></app-button>
+        <app-button text="Finalizar" variant="primary" (clicked)="avanzarPaso()"></app-button>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,8 @@
+<button 
+  [ngClass]="buttonClasses"
+  [disabled]="disabled"
+  (click)="onClick($event)">
+  <img *ngIf="icon && (iconPosition === 'left' || iconOnly)" [src]="'/assets/icons/' + icon + '.svg'" alt="" class="icon left-icon">
+  <span class="button-text" *ngIf="!iconOnly">{{ text }}</span>
+  <img *ngIf="icon && iconPosition === 'right' && !iconOnly" [src]="'/assets/icons/' + icon + '.svg'" alt="" class="icon right-icon">
+</button> 

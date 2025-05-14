@@ -1,0 +1,82 @@
+/* Layout Background exactamente como está en Figma, usando los valores proporcionados */
+
+/* Contenedor principal */
+.layout-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #FFFFFF; /* White */
+  overflow: hidden;
+}
+
+/* Capa con blur */
+.layout-blur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #DAE5E7; /* Secondary/10 */
+  opacity: 0.65;
+  backdrop-filter: blur(406.9px);
+  -webkit-backdrop-filter: blur(406.9px);
+  z-index: 0;
+}
+
+/* Círculo 1 - Secondary/80 */
+.ellipse-1 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  left: 16.5%; /* 238px de 1440px */
+  top: 36.9%; /* 378px de 1024px */
+  background: #85A8AD; /* Secondary/80 */
+  filter: blur(138.05px);
+  z-index: 1;
+}
+
+/* Círculo 2 - Primary/100 */
+.ellipse-2 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  left: 32.6%; /* 469px de 1440px */
+  top: 17.4%; /* 178px de 1024px */
+  background: #5347BA; /* Primary/100 */
+  filter: blur(138.05px);
+  z-index: 1;
+}
+
+/* Círculo 3 - Primary/40 */
+.ellipse-3 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  left: 47.4%; /* 682px de 1440px */
+  top: 36.9%; /* 378px de 1024px */
+  background: #ACA6DD; /* Primary/40 */
+  filter: blur(138.05px);
+  z-index: 1;
+}
+
+/* Overlay blanco */
+.layout-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #FFFFFF; /* White */
+  opacity: 0.4;
+  backdrop-filter: blur(250px);
+  -webkit-backdrop-filter: blur(250px);
+  z-index: 2;
+}
+
+/* Contenedor para el contenido de la aplicación (vacío) */
+.layout-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}

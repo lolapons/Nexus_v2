@@ -1,0 +1,7 @@
+<div class="provider-card" [class.selected]="selected" (click)="onSelect()">
+  <div class="provider-image">
+    <img *ngIf="providerImage" [src]="'/assets/icons/' + providerImage + '.svg'" alt="{{providerName}}" class="provider-logo">
+    <div *ngIf="!providerImage" class="placeholder-image"></div>
+  </div>
+  <span class="provider-name">{{providerName}}</span>
+</div> 
