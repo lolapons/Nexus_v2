@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-wizard-crear-modelo',
@@ -8,6 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WizardCrearModeloComponent implements OnInit {
   @Input() estado: 'bienvenido' | 'seleccion-modelo' | 'configuracion-modelo' | 'configuracion-api' | 'resumen' = 'bienvenido';
+  
+  // Referencia al contenedor del wizard para controlar el scroll
+  @ViewChild('wizardContainer', { static: false }) wizardContainer!: ElementRef;
   
   // Modelo para almacenar los datos del formulario
   modeloData = {
@@ -22,6 +25,15 @@ export class WizardCrearModeloComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // Método para hacer scroll hacia arriba
+  scrollToTop(): void {
+    setTimeout(() => {
+      if (this.wizardContainer && this.wizardContainer.nativeElement) {
+        this.wizardContainer.nativeElement.scrollTop = 0;
+      }
+    }, 0);
   }
 
   avanzarPaso(): void {
@@ -43,6 +55,8 @@ export class WizardCrearModeloComponent implements OnInit {
         console.log('Formulario completado', this.modeloData);
         break;
     }
+    // Hacer scroll hacia arriba después de cambiar el estado
+    this.scrollToTop();
   }
 
   retrocederPaso(): void {
@@ -60,13 +74,15 @@ export class WizardCrearModeloComponent implements OnInit {
         this.estado = 'configuracion-api';
         break;
     }
+    // Hacer scroll hacia arriba después de cambiar el estado
+    this.scrollToTop();
   }
 
   seleccionarProveedor(proveedor: string): void {
     this.modeloData.proveedor = proveedor;
   }
 
-  seleccionarModelo(modelo: string): void {
+  seleccionarModelo(modelo: any): void {
     this.modeloData.modelo = modelo;
   }
 

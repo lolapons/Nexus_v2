@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { WizardCrearModeloComponent } from './wizard-crear-modelo.component';
 import { ButtonModule } from '../../button/button.module';
 import { ProviderCardModule } from '../provider-card/provider-card.module';
-import { ModelCardModule } from '../model-card/model-card.module';
-import { ProgressIndicatorModule } from '../progress-indicator/progress-indicator.module';
+import { OptionSelectorModule } from '../option-selector/option-selector.module';
+import { ProgressBarModule } from '../../progress-bar/progress-bar.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,8 @@ import { ProgressIndicatorModule } from '../progress-indicator/progress-indicato
     FormsModule,
     ButtonModule,
     ProviderCardModule,
-    ModelCardModule,
-    ProgressIndicatorModule
+    OptionSelectorModule,
+    ProgressBarModule
   ],
   exports: [
     WizardCrearModeloComponent

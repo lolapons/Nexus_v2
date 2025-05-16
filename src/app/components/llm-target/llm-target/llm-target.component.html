@@ -1,0 +1,29 @@
+<div class="llm-target" [ngClass]="{'selected': selected}">
+  <div class="frame-6341">
+  <div class="frame-6340">
+      <div class="provider-badge" [style.background-color]="proveedorColor">
+        <span [style.color]="proveedorTextColor">{{proveedor}}</span>
+    </div>
+    <div class="buttons-container">
+      <button class="action-button" (click)="edit()">
+          <img src="assets/icons/edit_icon.svg" alt="Editar">
+      </button>
+      <button class="action-button" (click)="copy()">
+          <img src="assets/icons/copy_icon.svg" alt="Copiar">
+      </button>
+      <button class="action-button delete-button" (click)="delete()">
+          <div class="delete-icon-container">
+            <img src="assets/icons/delete_icon_1.svg" alt="Eliminar" class="delete-icon">
+            <img src="assets/icons/delete_icon_2.svg" alt="" class="delete-icon">
+            <img src="assets/icons/delete_icon_3.svg" alt="" class="delete-icon">
+          </div>
+      </button>
+    </div>
+  </div>
+  <div class="model-info">
+    <h2 class="model-title">{{nombre}}</h2>
+    <p class="model-subtitle">Modelo: {{modelo}}</p>
+    <p class="model-description">{{descripcion}}</p>
+    </div>
+  </div>
+</div> 

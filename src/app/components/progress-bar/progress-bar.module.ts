@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModelCardComponent } from './model-card.component';
+import { ProgressBarComponent } from './progress-bar.component';
 
 @NgModule({
   declarations: [
-    ModelCardComponent
+    ProgressBarComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    ModelCardComponent
+    ProgressBarComponent
   ]
 })
-export class ModelCardModule { } 
+export class ProgressBarModule { } 

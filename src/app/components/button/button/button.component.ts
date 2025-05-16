@@ -32,4 +32,4 @@ export class ButtonComponent implements OnInit {
   get buttonClasses(): string {
     return `button ${this.variant} ${this.size} ${this.fullWidth ? 'full-width' : ''} ${this.disabled ? 'disabled' : ''} ${this.iconOnly ? 'icon-only' : ''}`;
   }
-} 
+}

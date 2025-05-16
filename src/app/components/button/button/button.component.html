@@ -1,8 +1,19 @@
-<button 
+<!-- 
+  Componente de botón reutilizable con soporte para:
+  - Diferentes variantes (primary, secondary, tertiary)
+  - Tamaños (small, medium, large)
+  - Iconos (izquierda/derecha)
+  - Estado deshabilitado
+  - Ancho completo
+-->
+<button
   [ngClass]="buttonClasses"
   [disabled]="disabled"
   (click)="onClick($event)">
+  <!-- Icono izquierdo: se muestra cuando hay un icono y su posición es 'left' o el botón es solo icono -->
   <img *ngIf="icon && (iconPosition === 'left' || iconOnly)" [src]="'/assets/icons/' + icon + '.svg'" alt="" class="icon left-icon">
+  <!-- Texto del botón: se muestra solo cuando el botón no es de tipo 'solo icono' -->
   <span class="button-text" *ngIf="!iconOnly">{{ text }}</span>
+  <!-- Icono derecho: se muestra cuando hay un icono, su posición es 'right' y el botón no es solo icono -->
   <img *ngIf="icon && iconPosition === 'right' && !iconOnly" [src]="'/assets/icons/' + icon + '.svg'" alt="" class="icon right-icon">
 </button> 

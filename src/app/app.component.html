@@ -1,48 +1,15 @@
-<!-- Fondo con efectos visuales -->
-<div class="layout-background">
-  <div class="ellipse-1"></div>
-  <div class="ellipse-2"></div>
-  <div class="ellipse-3"></div>
-  <div class="layout-blur"></div>
-  <div class="layout-overlay"></div>
-  
-  <!-- Contenido de la aplicación -->
-  <div class="layout-content">
-    <div class="app-container">
-      <div class="navbar-container">
-        <navbar-sep></navbar-sep>
+<app-layout-background>
+  <div class="app-container">
+    <div class="navbar-container">
+      <navbar-sep></navbar-sep>
+    </div>
+
+    <div class="content">
+      <div class="demo-section">
+        <app-wizard-crear-modelo></app-wizard-crear-modelo>
       </div>
-      
-      <div class="content">
-        <div class="component-demo">
-          <h2 class="h2">Demo de Componentes</h2>
-          
-          <div class="demo-section">
-            <h3 class="h3">Wizard Crear Modelo</h3>
-            <app-wizard-crear-modelo></app-wizard-crear-modelo>
-          </div>
-          
-          <div class="demo-section">
-            <h3 class="h3">Option Selector</h3>
-            <app-option-selector></app-option-selector>
-          </div>
-          
-          <div class="demo-section">
-            <h3 class="h3">Botones</h3>
-            <div class="buttons-container">
-              <app-button text="Botón Primario" variant="primary" size="medium"></app-button>
-              <app-button text="Botón Secundario" variant="secondary" size="medium"></app-button>
-              <app-button text="Botón Terciario" variant="tertiary" size="medium"></app-button>
-              <app-button text="Botón Pequeño" variant="primary" size="small"></app-button>
-              <app-button text="Botón Grande" variant="primary" size="large"></app-button>
-              <app-button text="Botón con Ícono" variant="primary" size="medium" icon="plus" iconPosition="left"></app-button>
-              <app-button text="Deshabilitado" variant="primary" size="medium" [disabled]="true"></app-button>
-              <app-button text="Ancho Completo" variant="primary" size="medium" [fullWidth]="true"></app-button>
-            </div>
-          </div>
-        </div>
-        <router-outlet></router-outlet>
-      </div>
+
+      <router-outlet></router-outlet>
     </div>
   </div>
-</div>
+</app-layout-background>
