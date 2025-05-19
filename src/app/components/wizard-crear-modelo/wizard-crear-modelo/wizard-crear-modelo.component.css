@@ -426,7 +426,6 @@ label {
 }
 
 .summary-description {
-  margin-top: 24px;
   padding-top: 24px;
   border-top: 1px solid var(--grey-20);
   display: flex;

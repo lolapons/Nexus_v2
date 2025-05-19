@@ -6,6 +6,7 @@ import { ButtonModule } from '../../button/button.module';
 import { ProviderCardModule } from '../provider-card/provider-card.module';
 import { OptionSelectorModule } from '../option-selector/option-selector.module';
 import { ProgressBarModule } from '../../progress-bar/progress-bar.module';
+import { ProgressIndicatorModule } from '../progress-indicator/progress-indicator.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProgressBarModule } from '../../progress-bar/progress-bar.module';
     ButtonModule,
     ProviderCardModule,
     OptionSelectorModule,
-    ProgressBarModule
+    ProgressBarModule,
+    ProgressIndicatorModule
   ],
   exports: [
     WizardCrearModeloComponent

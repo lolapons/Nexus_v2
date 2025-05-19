@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 interface NavItem {
   id: string;
   icon: string;
   label: string;
+  route: string;
 }
 
 @Component({
@@ -16,15 +18,29 @@ export class NavbarSepComponent {
   selectedItem: string = 'brain';
   
   navItems: NavItem[] = [
-    { id: 'robot', icon: 'robot', label: 'Agentes' },
-    { id: 'brain', icon: 'brain', label: 'Modelos' },
-    { id: 'behavior', icon: 'behavior', label: 'Comportamiento' },
-    { id: 'tool', icon: 'tool', label: 'Herramientas' }
+    { id: 'brain', icon: 'brain', label: 'Modelos', route: '/modelos' },
+    { id: 'robot', icon: 'robot', label: 'Agentes', route: '/agentes' },
+    { id: 'behavior', icon: 'behavior', label: 'Comportamiento', route: '/comportamiento' },
+    { id: 'tool', icon: 'tool', label: 'Herramientas', route: '/herramientas' }
   ];
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const found = this.navItems.find(item => event.urlAfterRedirects.startsWith(item.route));
+        if (found) {
+          this.selectedItem = found.id;
+        }
+      }
+    });
+  }
 
   selectItem(itemId: string): void {
     this.selectedItem = itemId;
-    console.log('Item seleccionado:', itemId);
+    const selectedNavItem = this.navItems.find(item => item.id === itemId);
+    if (selectedNavItem) {
+      this.router.navigate([selectedNavItem.route]);
+    }
   }
   
   logout(): void {

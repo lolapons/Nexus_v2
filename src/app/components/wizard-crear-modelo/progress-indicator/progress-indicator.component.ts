@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-progress-indicator',
@@ -6,26 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./progress-indicator.component.css'],
   standalone: false
 })
-export class ProgressIndicatorComponent implements OnInit {
+export class ProgressIndicatorComponent {
   @Input() currentStep: number = 1;
   @Input() totalSteps: number = 5;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  get steps(): number[] {
+    return Array(this.totalSteps).fill(0).map((_, i) => i + 1);
   }
 
-  // Crear un array basado en el número total de pasos
-  getStepsArray(): number[] {
-    return Array(this.totalSteps).fill(0).map((x, i) => i + 1);
-  }
-
-  // Verificar si un paso está activo
-  isActive(step: number): boolean {
-    return step === this.currentStep;
-  }
-
-  // Verificar si un paso está completo
   isCompleted(step: number): boolean {
     return step < this.currentStep;
   }

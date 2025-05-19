@@ -1,35 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { OptionSelectorModule } from './components/wizard-crear-modelo/option-selector/option-selector.module';
-
 import { AppComponent } from './app.component';
-import { NavbarModule } from './components/navbar-v2/navbar/navbar.module';
+import { AppRoutingModule } from './app-routing.module';
+import { ModelosModule } from './pages/modelos/modelos.module';
+import { AgentesModule } from './pages/agentes/agentes.module';
+import { ComportamientoModule } from './pages/comportamiento/comportamiento.module';
+import { HerramientasModule } from './pages/herramientas/herramientas.module';
 import { NavbarSepModule } from './components/navbar-sep/navbar-sep/navbar-sep.module';
-import { ButtonModule } from './components/button/button.module';
-import { WizardCrearModeloModule } from './components/wizard-crear-modelo/wizard-crear-modelo.module';
-import { ProgressBarModule } from './components/progress-bar/progress-bar.module';
-import { LayoutBackgroundModule } from './components/layout-background/layout-background.module';
-import { routes } from './app.routes';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    CommonModule,
-    RouterModule.forRoot(routes),
-    NavbarModule,
-    NavbarSepModule,
-    OptionSelectorModule,
-    ButtonModule,
-    WizardCrearModeloModule,
-    ProgressBarModule,
-    LayoutBackgroundModule
+    AppRoutingModule,
+    ModelosModule,
+    AgentesModule,
+    ComportamientoModule,
+    HerramientasModule,
+    NavbarSepModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { } 
+export class AppModule {} 

@@ -1,15 +1,6 @@
-<app-layout-background>
-  <div class="app-container">
-    <div class="navbar-container">
-      <navbar-sep></navbar-sep>
-    </div>
-
-    <div class="content">
-      <div class="demo-section">
-        <app-wizard-crear-modelo></app-wizard-crear-modelo>
-      </div>
-
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</app-layout-background>
+<div class="app-container">
+  <navbar-sep></navbar-sep>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

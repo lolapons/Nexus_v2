@@ -1,0 +1,7 @@
+.pagina-titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: var(--font-family-heading);
+  color: var(--primary-100);
+  margin-top: 64px;
+} 

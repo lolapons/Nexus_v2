@@ -13,6 +13,7 @@
   align-items: center;
   position: relative;
   z-index: 2;
+  gap: 22px;
 }
 
 .progress-item {
@@ -33,9 +34,9 @@
 
 .progress-spacers {
   position: absolute;
-  top: 12px; /* Centrado verticalmente con respecto a los indicadores */
-  left: 24px; /* Ajuste para comenzar después del primer indicador */
-  right: 24px; /* Ajuste para terminar antes del último indicador */
+  top: 12px;
+  left: 24px;
+  right: 24px;
   display: flex;
   justify-content: space-between;
   z-index: 1;
@@ -52,4 +53,29 @@
 
 .progress-spacer.filled {
   background-color: var(--primary-100);
+}
+
+.progress-bar-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0 24px 0;
+}
+
+.progress-bar-segment {
+  flex: 1;
+  height: 6px;
+  border-radius: 8px;
+  background: var(--grey-20);
+  transition: background 0.2s;
+}
+
+.progress-bar-segment.active {
+  background: var(--primary-100);
+}
+
+.progress-bar-segment.inactive {
+  background: var(--grey-20);
 } 
