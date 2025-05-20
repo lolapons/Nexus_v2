@@ -68,7 +68,7 @@
   flex: 1;
   height: 6px;
   border-radius: 8px;
-  background: var(--grey-20);
+  background: var(--black-20);
   transition: background 0.2s;
 }
 
@@ -77,5 +77,5 @@
 }
 
 .progress-bar-segment.inactive {
-  background: var(--grey-20);
+  background: var(--black-20);
 } 

@@ -22,6 +22,22 @@ export class WizardCrearModeloComponent implements OnInit {
     claveApi: ''
   };
 
+  // Estado de los errores
+  errores = {
+    proveedor: false,
+    modelo: false,
+    nombre: false,
+    descripcion: false
+  };
+
+  // Mensajes de error
+  mensajesError = {
+    proveedor: 'Debes seleccionar un proveedor',
+    modelo: 'Debes seleccionar un modelo',
+    nombre: 'Debes introducir un nombre para el modelo',
+    descripcion: 'Debes introducir una descripción para el modelo'
+  };
+
   constructor() { }
 
   ngOnInit(): void {
@@ -36,16 +52,34 @@ export class WizardCrearModeloComponent implements OnInit {
     }, 0);
   }
 
+  // Validar el paso de selección de modelo
+  validarSeleccionModelo(): boolean {
+    this.errores.proveedor = !this.modeloData.proveedor;
+    this.errores.modelo = !this.modeloData.modelo;
+    return !this.errores.proveedor && !this.errores.modelo;
+  }
+
+  // Validar el paso de configuración del modelo
+  validarConfiguracionModelo(): boolean {
+    this.errores.nombre = !this.modeloData.nombre;
+    this.errores.descripcion = !this.modeloData.descripcion;
+    return !this.errores.nombre && !this.errores.descripcion;
+  }
+
   avanzarPaso(): void {
     switch (this.estado) {
       case 'bienvenido':
         this.estado = 'seleccion-modelo';
         break;
       case 'seleccion-modelo':
-        this.estado = 'configuracion-modelo';
+        if (this.validarSeleccionModelo()) {
+          this.estado = 'configuracion-modelo';
+        }
         break;
       case 'configuracion-modelo':
-        this.estado = 'configuracion-api';
+        if (this.validarConfiguracionModelo()) {
+          this.estado = 'configuracion-api';
+        }
         break;
       case 'configuracion-api':
         this.estado = 'resumen';
@@ -60,6 +94,10 @@ export class WizardCrearModeloComponent implements OnInit {
   }
 
   retrocederPaso(): void {
+    // Limpiar errores al retroceder
+    this.errores.proveedor = false;
+    this.errores.modelo = false;
+
     switch (this.estado) {
       case 'seleccion-modelo':
         this.estado = 'bienvenido';
@@ -80,10 +118,12 @@ export class WizardCrearModeloComponent implements OnInit {
 
   seleccionarProveedor(proveedor: string): void {
     this.modeloData.proveedor = proveedor;
+    this.errores.proveedor = false;
   }
 
-  seleccionarModelo(modelo: any): void {
+  seleccionarModelo(modelo: string): void {
     this.modeloData.modelo = modelo;
+    this.errores.modelo = false;
   }
 
   get jsonResumen(): string {

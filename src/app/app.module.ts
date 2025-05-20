@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ModelosModule } from './pages/modelos/modelos.module';
@@ -7,18 +9,22 @@ import { AgentesModule } from './pages/agentes/agentes.module';
 import { ComportamientoModule } from './pages/comportamiento/comportamiento.module';
 import { HerramientasModule } from './pages/herramientas/herramientas.module';
 import { NavbarSepModule } from './components/navbar-sep/navbar-sep/navbar-sep.module';
+import { LayoutBackgroundModule } from "./components/layout-background/layout-background.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
     AppRoutingModule,
     ModelosModule,
     AgentesModule,
     ComportamientoModule,
     HerramientasModule,
-    NavbarSepModule
-  ],
+    NavbarSepModule,
+    LayoutBackgroundModule
+],
   providers: [],
   bootstrap: [AppComponent]
 })

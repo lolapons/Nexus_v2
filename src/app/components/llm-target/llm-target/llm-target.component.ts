@@ -1,5 +1,24 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+interface ModeloLLM {
+  id?: string;
+  nombre: string;
+  modelo: string;
+  descripcion: string;
+  proveedor: string;
+  configuracion?: any;
+  fecha_creacion?: string;
+}
+
+interface ProveedorColor {
+  bg: string;
+  text: string;
+}
+
+type ProveedorColores = {
+  [key in 'OpenAI' | 'Anthropic' | 'Google' | 'Default']: ProveedorColor;
+}
+
 @Component({
   selector: 'app-llm-target',
   templateUrl: './llm-target.component.html',
@@ -7,29 +26,44 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   standalone: false
 })
 export class LlmTargetComponent {
-  @Input() nombre: string = 'GPT-4 para Soporte';
-  @Input() modelo: string = 'gpt-4';
-  @Input() descripcion: string = 'Modelo optimizado para responder preguntas de soporte técnico modelo optimizado para responder preguntas de soporte técnico';
-  @Input() proveedor: string = 'OpenAI';
+  @Input() modelData: ModeloLLM = {
+    nombre: '',
+    modelo: '',
+    descripcion: '',
+    proveedor: ''
+  };
   @Input() selected: boolean = false;
-  @Input() proveedorColor: string = '#A2C8AC';
-  @Input() proveedorTextColor: string = '#294C2A';
 
-  @Output() onEdit = new EventEmitter<void>();
-  @Output() onCopy = new EventEmitter<void>();
-  @Output() onDelete = new EventEmitter<void>();
+  private proveedorColores: ProveedorColores = {
+    'OpenAI': { bg: '#A2C8AC', text: '#294C2A' },
+    'Anthropic': { bg: '#C8A2A2', text: '#4C2929' },
+    'Google': { bg: '#A2A2C8', text: '#29294C' },
+    'Default': { bg: '#E5E7EB', text: '#374151' }
+  };
 
-  constructor() { }
+  get proveedorColor(): string {
+    const proveedor = this.modelData.proveedor as keyof ProveedorColores;
+    return (this.proveedorColores[proveedor]?.bg || this.proveedorColores['Default'].bg);
+  }
+
+  get proveedorTextColor(): string {
+    const proveedor = this.modelData.proveedor as keyof ProveedorColores;
+    return (this.proveedorColores[proveedor]?.text || this.proveedorColores['Default'].text);
+  }
+
+  @Output() onEdit = new EventEmitter<ModeloLLM>();
+  @Output() onCopy = new EventEmitter<ModeloLLM>();
+  @Output() onDelete = new EventEmitter<ModeloLLM>();
 
   edit(): void {
-    this.onEdit.emit();
+    this.onEdit.emit(this.modelData);
   }
 
   copy(): void {
-    this.onCopy.emit();
+    this.onCopy.emit(this.modelData);
   }
 
   delete(): void {
-    this.onDelete.emit();
+    this.onDelete.emit(this.modelData);
   }
 } 

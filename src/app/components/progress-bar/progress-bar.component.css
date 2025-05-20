@@ -6,8 +6,9 @@
 
 .progress-bar {
   width: 100%;
-  background-color: var(--grey);
-  border-radius: 4px;
+  height: 4px;
+  background-color: var(--black-20);
+  border-radius: 8px;
   transition: background-color 0.3s ease-in-out;
 }
 

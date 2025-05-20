@@ -12,29 +12,9 @@ const meta: Meta<LlmTargetComponent> = {
   ],
   tags: ['autodocs'],
   argTypes: {
-    nombre: {
-      control: 'text',
-      description: 'Nombre del modelo',
-    },
-    modelo: {
-      control: 'text',
-      description: 'Identificador del modelo',
-    },
-    descripcion: {
-      control: 'text',
-      description: 'Descripción del modelo',
-    },
-    proveedor: {
-      control: 'text',
-      description: 'Proveedor del modelo',
-    },
-    proveedorColor: {
-      control: 'color',
-      description: 'Color de fondo del badge de proveedor',
-    },
-    proveedorTextColor: {
-      control: 'color',
-      description: 'Color del texto del badge de proveedor',
+    modelData: {
+      control: 'object',
+      description: 'Datos del modelo',
     },
     selected: {
       control: 'boolean',
@@ -60,48 +40,48 @@ type Story = StoryObj<LlmTargetComponent>;
 
 export const Default: Story = {
   args: {
-    nombre: 'GPT-4 para Soporte',
-    modelo: 'gpt-4',
-    descripcion: 'Modelo optimizado para responder preguntas de soporte técnico modelo optimizado para responder preguntas de soporte técnico',
-    proveedor: 'OpenAI',
-    proveedorColor: '#A2C8AC',
-    proveedorTextColor: '#294C2A',
-    selected: false,
+    modelData: {
+      nombre: 'GPT-4 para Soporte',
+      modelo: 'gpt-4',
+      descripcion: 'Modelo optimizado para responder preguntas de soporte técnico',
+      proveedor: 'OpenAI'
+    },
+    selected: false
   },
 };
 
 export const Selected: Story = {
   args: {
-    nombre: 'GPT-4 para Soporte',
-    modelo: 'gpt-4',
-    descripcion: 'Modelo optimizado para responder preguntas de soporte técnico modelo optimizado para responder preguntas de soporte técnico',
-    proveedor: 'OpenAI',
-    proveedorColor: '#A2C8AC',
-    proveedorTextColor: '#294C2A',
-    selected: true,
+    modelData: {
+      nombre: 'GPT-4 para Soporte',
+      modelo: 'gpt-4',
+      descripcion: 'Modelo optimizado para responder preguntas de soporte técnico',
+      proveedor: 'OpenAI'
+    },
+    selected: true
   },
 };
 
 export const LongDescription: Story = {
   args: {
-    nombre: 'GPT-4 para Soporte',
-    modelo: 'gpt-4',
-    descripcion: 'Modelo optimizado para responder preguntas de soporte técnico. Este modelo ha sido entrenado con datos específicos para proporcionar respuestas claras y precisas a problemas técnicos comunes.',
-    proveedor: 'OpenAI',
-    proveedorColor: '#A2C8AC',
-    proveedorTextColor: '#294C2A',
-    selected: false,
+    modelData: {
+      nombre: 'GPT-4 para Soporte',
+      modelo: 'gpt-4',
+      descripcion: 'Modelo optimizado para responder preguntas de soporte técnico. Este modelo ha sido entrenado con datos específicos para proporcionar respuestas claras y precisas a problemas técnicos comunes.',
+      proveedor: 'OpenAI'
+    },
+    selected: false
   },
 };
 
 export const DifferentProvider: Story = {
   args: {
-    nombre: 'Claude 3 Opus',
-    modelo: 'claude-3-opus-20240229',
-    descripcion: 'Modelo avanzado de Anthropic para procesamiento de lenguaje natural con capacidades multimodales',
-    proveedor: 'Anthropic',
-    proveedorColor: '#BFBAF5',
-    proveedorTextColor: '#3A31AB',
-    selected: false,
+    modelData: {
+      nombre: 'Claude 3 Opus',
+      modelo: 'claude-3-opus-20240229',
+      descripcion: 'Modelo avanzado de Anthropic para procesamiento de lenguaje natural con capacidades multimodales',
+      proveedor: 'Anthropic'
+    },
+    selected: false
   },
 }; 

@@ -3,14 +3,19 @@
   --scrollbar-width: 8px;
 }
 
+:host {
+  display: block;
+  width: 100%;
+  max-width: 1027px;
+  margin: 0 auto;
+}
+
 .wizard-container {
   display: flex;
   flex-direction: column;
   background-color: var(--white);
   border-radius: 8px;
   width: 100%;
-  max-width: 1027px;
-  margin: 0 auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   position: relative;
   height: 726px; /* Altura fija */
@@ -43,7 +48,6 @@
   padding: 39px 40px 29px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   height: auto;
   min-height: calc(100% - 120px);
   width: 100%;
@@ -71,7 +75,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
   padding-bottom: 100px; /* Espacio para los botones */
   width: 100%;
   flex: 1;
@@ -296,7 +299,7 @@
   width: 100%;
   max-width: 969px;
   align-self: center;
-  margin-bottom: 0;
+  margin-bottom: 24px;
 }
 
 label {
@@ -314,7 +317,7 @@ label {
   border: 1px solid #E1E2E9;
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5em;
   color: var(--black-100);
   height: 52px;
@@ -335,7 +338,7 @@ label {
 
 .form-input::placeholder, .form-textarea::placeholder {
   color: #ABAFB1;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -427,7 +430,6 @@ label {
 
 .summary-description {
   padding-top: 24px;
-  border-top: 1px solid var(--grey-20);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -437,7 +439,6 @@ label {
   max-height: 100px;
   overflow-y: auto;
   background-color: var(--white);
-  border: 1px solid var(--grey-20);
   border-radius: 8px;
   white-space: pre-wrap;
   word-break: break-word;
@@ -454,20 +455,77 @@ label {
 }
 
 .summary-description .summary-value::-webkit-scrollbar-track {
-  background: var(--grey-10);
   border-radius: 4px;
   margin: 4px;
 }
 
 .summary-description .summary-value::-webkit-scrollbar-thumb {
-  background: var(--grey-40);
   border-radius: 4px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 
 .summary-description .summary-value::-webkit-scrollbar-thumb:hover {
-  background: var(--grey-60);
+  background: var(--black-20);
   border: 2px solid transparent;
   background-clip: padding-box;
+}
+
+.error-message {
+  color: var(--action-red);
+  font-family: var(--font-family-body);
+  font-size: var(--label-1-font-size);
+  line-height: var(--label-1-line-height);
+  font-weight: var(--font-weight-medium);
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-message::before {
+  content: "!";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background-color: var(--action-red);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Estilos para elementos con error */
+.provider-card.error {
+  border-color: var(--action-red);
+  background-color: var(--white);
+}
+
+.option-selector.error {
+  border-color: var(--action-red);
+  background-color: var(--white);
+}
+
+/* Estilos para campos con error */
+.form-input.error, 
+.form-textarea.error, 
+.provider-card.error, 
+.option-selector.error {
+  border-color: var(--action-red);
+  background-color: var(--white);
+}
+
+.form-input.error:focus, 
+.form-textarea.error:focus, 
+.provider-card.error:focus, 
+.option-selector.error:focus {
+  border-color: var(--action-red);
+  box-shadow: 0 0 0 2px rgba(204, 95, 95, 0.2);
+  outline: none;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
 } 
