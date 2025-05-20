@@ -129,4 +129,9 @@ export class WizardCrearModeloComponent implements OnInit {
   get jsonResumen(): string {
     return JSON.stringify(this.modeloData, null, 2);
   }
+
+  // Método para verificar si un estado está activo
+  isActiveState(checkState: string): boolean {
+    return this.estado === checkState;
+  }
 } 

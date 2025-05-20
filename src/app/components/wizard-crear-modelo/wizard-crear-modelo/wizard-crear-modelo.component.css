@@ -67,7 +67,7 @@
   line-height: 1.2em;
   color: var(--black-100);
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 8px;
   width: 100%;
 }
 
@@ -200,7 +200,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-bottom: 32px;
   width: 100%;
   max-width: 750px;
 }
@@ -260,7 +259,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-bottom: 32px;
   width: 100%;
   max-width: 950px;
 }
@@ -477,7 +475,7 @@ label {
   font-size: var(--label-1-font-size);
   line-height: var(--label-1-line-height);
   font-weight: var(--font-weight-medium);
-  margin-top: 8px;
+  margin-top: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -528,4 +526,50 @@ label {
 
 .form-group:last-child {
   margin-bottom: 0;
+}
+
+/* Estilos para el contenedor del progress indicator y sus labels */
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 969px;
+  margin: 0 auto 20px;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 12px;
+  margin-bottom: 0;
+  height: 16px;
+}
+
+.progress-label {
+  font-family: var(--font-family-body);
+  font-size: var(--label-1-font-size);
+  line-height: var(--label-1-line-height);
+  color: var(--black-40);
+  text-align: center;
+  transition: all 0.3s ease;
+  flex: 1;
+  padding: 0 8px;
+  transform-origin: center;
+  transform: scale(1);
+}
+
+.progress-label.active {
+  color: var(--primary-100);
+  font-weight: var(--font-weight-medium);
+  transform: scale(1.1);
+}
+
+/* Aseguramos que el progress indicator tenga el ancho completo */
+app-progress-indicator {
+  width: 100%;
+  display: block;
+  margin-top: -8px;
 } 

@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 600px;
   position: relative;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .progress-indicators {
@@ -61,7 +61,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin: 32px 0 24px 0;
+  margin: 20px 0 20px 0;
 }
 
 .progress-bar-segment {

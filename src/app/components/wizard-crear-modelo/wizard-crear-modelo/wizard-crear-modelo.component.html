@@ -4,7 +4,16 @@
   <!-- Paso 1: Bienvenido -->
   <div *ngIf="estado === 'bienvenido'" class="wizard-step">
     <h1 class="wizard-title">Bienvenido</h1>
-      <app-progress-indicator [currentStep]="1" [totalSteps]="5"></app-progress-indicator>
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span class="progress-label" [ngClass]="{'active': isActiveState('bienvenido')}">Bienvenido</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('seleccion-modelo')}">Selección</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-modelo')}">Configuración</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-api')}">API</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('resumen')}">Resumen</span>
+        </div>
+        <app-progress-indicator [currentStep]="1" [totalSteps]="5"></app-progress-indicator>
+      </div>
     
     <div class="wizard-content">
       <div class="wizard-header">
@@ -26,7 +35,16 @@
   <!-- Paso 2: Selección de modelo -->
   <div *ngIf="estado === 'seleccion-modelo'" class="wizard-step">
     <h1 class="wizard-title">Seleccionar modelo</h1>
-      <app-progress-indicator [currentStep]="2" [totalSteps]="5"></app-progress-indicator>
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span class="progress-label" [ngClass]="{'active': isActiveState('bienvenido')}">Bienvenido</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('seleccion-modelo')}">Selección</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-modelo')}">Configuración</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-api')}">API</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('resumen')}">Resumen</span>
+        </div>
+        <app-progress-indicator [currentStep]="2" [totalSteps]="5"></app-progress-indicator>
+      </div>
     
     <div class="wizard-content">
       <div class="wizard-header">
@@ -108,7 +126,16 @@
   <!-- Paso 3: Configuración del modelo -->
   <div *ngIf="estado === 'configuracion-modelo'" class="wizard-step">
     <h1 class="wizard-title">Configuración del modelo</h1>
-      <app-progress-indicator [currentStep]="3" [totalSteps]="5"></app-progress-indicator>
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span class="progress-label" [ngClass]="{'active': isActiveState('bienvenido')}">Bienvenido</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('seleccion-modelo')}">Selección</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-modelo')}">Configuración</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-api')}">API</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('resumen')}">Resumen</span>
+        </div>
+        <app-progress-indicator [currentStep]="3" [totalSteps]="5"></app-progress-indicator>
+      </div>
     
     <div class="wizard-content">
       <div class="wizard-header">
@@ -154,7 +181,16 @@
   <!-- Paso 4: Configuración de API -->
   <div *ngIf="estado === 'configuracion-api'" class="wizard-step">
     <h1 class="wizard-title">Configuración de API</h1>
-      <app-progress-indicator [currentStep]="4" [totalSteps]="5"></app-progress-indicator>
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span class="progress-label" [ngClass]="{'active': isActiveState('bienvenido')}">Bienvenido</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('seleccion-modelo')}">Selección</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-modelo')}">Configuración</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-api')}">API</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('resumen')}">Resumen</span>
+        </div>
+        <app-progress-indicator [currentStep]="4" [totalSteps]="5"></app-progress-indicator>
+      </div>
     
     <div class="wizard-content">
       <div class="wizard-header">
@@ -194,7 +230,16 @@
   <!-- Paso 5: Resumen -->
   <div *ngIf="estado === 'resumen'" class="wizard-step">
     <h1 class="wizard-title">Resumen</h1>
-      <app-progress-indicator [currentStep]="5" [totalSteps]="5"></app-progress-indicator>
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span class="progress-label" [ngClass]="{'active': isActiveState('bienvenido')}">Bienvenido</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('seleccion-modelo')}">Selección</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-modelo')}">Configuración</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('configuracion-api')}">API</span>
+          <span class="progress-label" [ngClass]="{'active': isActiveState('resumen')}">Resumen</span>
+        </div>
+        <app-progress-indicator [currentStep]="5" [totalSteps]="5"></app-progress-indicator>
+      </div>
     
     <div class="wizard-content">
       <div class="wizard-header">
