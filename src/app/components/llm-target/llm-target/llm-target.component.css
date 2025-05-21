@@ -1,120 +1,150 @@
+/* Card Container */
 .llm-target {
-  position: relative;
-  background-color: var(--white);
+  background: var(--white);
+  border: 1.5px solid var(--black-20);
   border-radius: 8px;
-  width: 100%;
-  padding: 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  cursor: pointer;
+  height: 280px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 24px rgba(83, 71, 186, 0.08);
 }
 
 .llm-target:hover {
-  border-color: var(--primary-80);
+  background: var(--white);
+  border-color: var(--primary-100);
+  box-shadow: 0px 8px 32px rgba(83, 71, 186, 0.12);
 }
 
 .llm-target.selected {
-  border-color: var(--primary-100);
+  background: var(--white);
+  border: 2px solid var(--primary-100);
+  padding: 23px;
+  box-shadow: 0px 8px 32px rgba(83, 71, 186, 0.16);
 }
 
-.frame-6341 {
+/* Header Section */
+.llm-target__header {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.frame-6340 {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+/* Provider Badge */
+.llm-target__provider {
+  display: flex;
   align-items: center;
-  padding: 16px;
-  gap: 84px;
-  width: 100%;
 }
 
 .provider-badge {
+  padding: 2px 8px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  height: 24px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  padding: 6px 43px;
-  width: 155px;
-  height: 38px;
 }
 
-.provider-badge span {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.21;
-  text-align: left;
-}
-
-.buttons-container {
+/* Actions Container */
+.llm-target__actions {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .action-button {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: var(--white);
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
+  background: var(--black-5);
   cursor: pointer;
-  width: 36px;
-  height: 36px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
+  padding: 0;
 }
 
 .action-button:hover {
-  background-color: var(--light-gray-alt);
+  background: var(--black-10);
 }
 
-.delete-button svg path {
-  stroke: var(--error);
+.action-button--delete:hover {
+  background: var(--error-10);
 }
 
-.model-info {
+.action-button--delete:hover svg path {
+  stroke: var(--error-100);
+}
+
+.action-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.action-button svg path {
+  stroke: var(--black-60);
+  transition: stroke 0.2s ease-in-out;
+}
+
+/* Content Section */
+.llm-target__content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 0 16px 16px;
-  width: 408px;
+  gap: 8px;
+  flex: 1;
 }
 
-.model-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.5;
+.llm-target__title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
   color: var(--black-100);
   margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
-.model-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.21;
-  color: var(--black-80);
-  margin: 0;
+.llm-target__details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.model-description {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.21;
-  color: var(--black-80);
+.llm-target__model {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--black-60);
   margin: 0;
-  width: 100%;
-  word-break: break-word;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.llm-target__description {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--black-60);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Utility Classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 } 

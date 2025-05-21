@@ -1,7 +1,0 @@
-.modelos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 24px;
-  width: 100%;
-  padding: 24px;
-} 

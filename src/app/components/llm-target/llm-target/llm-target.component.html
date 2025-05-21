@@ -1,27 +1,64 @@
-<div class="llm-target" [ngClass]="{'selected': selected}">
-  <div class="frame-6341">
-    <div class="frame-6340">
-      <div class="provider-badge" [style.background-color]="proveedorColor">
-        <span [style.color]="proveedorTextColor">{{modelData.proveedor}}</span>
-      </div>
-      <div class="buttons-container">
-        <button class="action-button" (click)="edit()">
-          <img src="assets/icons/edit_icon.svg" alt="Editar">
-        </button>
-        <button class="action-button" (click)="copy()">
-          <img src="assets/icons/copy_icon.svg" alt="Copiar">
-        </button>
-        <button class="action-button delete-button" (click)="delete()">
-          <div class="delete-icon-container">
-            <img src="assets/icons/delete_icon_1.svg" alt="Eliminar" class="delete-icon">
-          </div>
-        </button>
-      </div>
+<article class="llm-target" [ngClass]="{'selected': selected}" [attr.aria-selected]="selected">
+  <header class="llm-target__header">
+    <div class="llm-target__provider">
+      <span 
+        class="provider-badge" 
+        [style.background-color]="proveedorColor"
+        [style.color]="proveedorTextColor"
+        role="status"
+      >
+        {{modelData.proveedor}}
+      </span>
     </div>
-    <div class="model-info">
-      <h2 class="model-title">{{modelData.nombre}}</h2>
-      <p class="model-subtitle">Modelo: {{modelData.modelo}}</p>
-      <p class="model-description">{{modelData.descripcion}}</p>
+
+    <div class="llm-target__actions">
+      <button 
+        class="action-button" 
+        (click)="edit()"
+        aria-label="Editar modelo"
+        type="button"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18.5 2.49998C18.8978 2.10216 19.4374 1.87866 20 1.87866C20.5626 1.87866 21.1022 2.10216 21.5 2.49998C21.8978 2.89781 22.1213 3.43737 22.1213 3.99998C22.1213 4.56259 21.8978 5.10216 21.5 5.49998L12 15L8 16L9 12L18.5 2.49998Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button 
+        class="action-button" 
+        (click)="copy()"
+        aria-label="Copiar modelo"
+        type="button"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M4 9H13C14.1046 9 15 9.89543 15 11V20C15 21.1046 14.1046 22 13 22H4C2.89543 22 2 21.1046 2 20V11C2 9.89543 2.89543 9 4 9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 15H20C20.5304 15 21.0391 14.7893 21.4142 14.4142C21.7893 14.0391 22 13.5304 22 13V4C22 3.46957 21.7893 2.96086 21.4142 2.58579C21.0391 2.21071 20.5304 2 20 2H11C10.4696 2 9.96086 2.21071 9.58579 2.58579C9.21071 2.96086 9 3.46957 9 4V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button 
+        class="action-button action-button--delete" 
+        (click)="delete()"
+        aria-label="Eliminar modelo"
+        type="button"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M19.325 9.46826C19.325 9.46826 18.782 16.2033 18.467 19.0403C18.317 20.3953 17.48 21.1893 16.109 21.2143C13.5 21.2613 10.888 21.2643 8.28003 21.2093C6.96103 21.1823 6.13803 20.3783 5.99103 19.0473C5.67403 16.1853 5.13403 9.46826 5.13403 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20.7082 6.23975H3.75024" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="llm-target__content">
+    <h2 class="llm-target__title">{{modelData.nombre}}</h2>
+    <div class="llm-target__details">
+      <p class="llm-target__model">
+        <span class="visually-hidden">Nombre del modelo:</span>
+        {{modelData.modelo}}
+      </p>
+      <p class="llm-target__description">{{modelData.descripcion}}</p>
     </div>
   </div>
-</div> 
+</article> 

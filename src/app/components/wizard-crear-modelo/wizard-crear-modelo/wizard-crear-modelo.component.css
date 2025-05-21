@@ -572,4 +572,28 @@ app-progress-indicator {
   width: 100%;
   display: block;
   margin-top: -8px;
+}
+
+.wizard-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 2px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-40);
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.2s, color 0.2s;
+}
+
+.wizard-close-btn:hover, .wizard-close-btn:focus {
+  background: var(--primary-10);
+  color: var(--primary-100);
+  outline: none;
 } 

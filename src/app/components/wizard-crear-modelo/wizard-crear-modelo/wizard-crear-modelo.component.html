@@ -1,4 +1,10 @@
 <div class="wizard-container" #wizardContainer [ngClass]="{'no-scroll': estado !== 'seleccion-modelo'}">
+  <button class="wizard-close-btn" type="button" aria-label="Cerrar wizard" (click)="onClose()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
   <!-- Contenedor interno para centrar el contenido correctamente en todos los estados -->
   <div class="wizard-inner-container">
   <!-- Paso 1: Bienvenido -->
@@ -203,9 +209,13 @@
           type="text" 
           id="url-api" 
           class="form-input" 
+          [ngClass]="{'error': errores.urlApi}"
           placeholder="https://your-resource-name.openai.azure.com/openai/deployments/your-deployment-name"
           [(ngModel)]="modeloData.urlApi"
         >
+        <div *ngIf="errores.urlApi" class="error-message">
+          {{ mensajesError.urlApi }}
+        </div>
       </div>
       
       <div class="form-group">
@@ -214,9 +224,13 @@
           type="password" 
           id="clave-api" 
           class="form-input" 
+          [ngClass]="{'error': errores.claveApi}"
           placeholder="sk-fakeOaiToken1234567890abcdefXYZ987654321"
           [(ngModel)]="modeloData.claveApi"
         >
+        <div *ngIf="errores.claveApi" class="error-message">
+          {{ mensajesError.claveApi }}
+        </div>
       <p class="helper-text">Tu clave se almacenará de forma segura y nunca se compartirá.</p>
         </div>
     </div>

@@ -2,7 +2,27 @@
   <div class="demo-section">
     <div class="title-container">
       <h1 class="title">Modelo</h1>
+      <ng-container *ngIf="!showWizard">
+        <app-search 
+          [(value)]="searchTerm"
+          (search)="onSearch($event)"
+        ></app-search>
+      </ng-container>
     </div>
-    <app-wizard-crear-modelo></app-wizard-crear-modelo>
+
+    <ng-container *ngIf="showWizard">
+      <app-wizard-crear-modelo (close)="closeWizard()"></app-wizard-crear-modelo>
+    </ng-container>
+    
+    <div class="modelos-grid" *ngIf="!showWizard">
+      <app-add-model-card (addModel)="onAddModel()"></app-add-model-card>
+      <app-llm-target
+        *ngFor="let modelo of filteredModelos; let i = index"
+        [modelData]="modelo"
+        (edit)="onEdit(i)"
+        (onCopy)="onCopy(modelo)"
+        (onDelete)="onDelete(modelo)"
+      ></app-llm-target>
+    </div>
   </div>
 </app-layout-background>
