@@ -8,9 +8,8 @@ import { ModelosModule } from './pages/modelos/modelos.module';
 import { AgentesModule } from './pages/agentes/agentes.module';
 import { ComportamientoModule } from './pages/comportamiento/comportamiento.module';
 import { HerramientasModule } from './pages/herramientas/herramientas.module';
-import { NavbarSepModule } from './components/navbar-sep/navbar-sep/navbar-sep.module';
-import { LayoutBackgroundModule } from "./components/layout-background/layout-background.module";
-
+import { LayoutModule } from './components/layout/layout.module';
+import { WizardCrearModeloModule } from "./components/wizards/wizard-crear-modelo/wizard-crear-modelo.module";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,10 +21,10 @@ import { LayoutBackgroundModule } from "./components/layout-background/layout-ba
     AgentesModule,
     ComportamientoModule,
     HerramientasModule,
-    NavbarSepModule,
-    LayoutBackgroundModule
+    LayoutModule,
+    WizardCrearModeloModule
 ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {} 
+export class AppModule { } 

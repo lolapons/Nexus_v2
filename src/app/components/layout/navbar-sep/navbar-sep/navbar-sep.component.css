@@ -1,0 +1,99 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 56px;
+  height: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+.logo {
+  width: 56px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.logout-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+  width: 100%;
+}
+
+/* Estilo para los botones de menú */
+.menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 0 auto;
+}
+
+/* Elemento no seleccionado - sin fondo */
+.menu-item {
+  background-color: transparent;
+}
+
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Elemento seleccionado - con fondo blanco y sombra */
+.menu-item.selected {
+  background-color: #FFFFFF;
+  box-shadow: 0px 2px 3.5px 0px rgba(85, 112, 241, 0.16);
+}
+
+/* Color de los iconos */
+.menu-item img {
+  width: 24px;
+  height: 24px;
+  color: #53545C;
+  transition: color 0.2s;
+}
+
+.menu-item.selected img {
+  color: #5347BA;
+}
+
+/* Estilo para el botón de logout */
+.logout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: rgba(204, 95, 95, 0.1);
+}
+
+.logout-button img {
+  width: 24px;
+  height: 24px;
+  color: #CC5F5F;
+} 

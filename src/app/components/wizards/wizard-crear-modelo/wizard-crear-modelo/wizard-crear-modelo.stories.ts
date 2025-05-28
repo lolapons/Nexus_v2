@@ -1,13 +1,13 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { WizardCrearModeloComponent } from './wizard-crear-modelo.component';
-import { WizardCrearModeloComponentModule } from './wizard-crear-modelo.module';
+
 
 const meta: Meta<WizardCrearModeloComponent> = {
   title: 'Components/Wizard Crear Modelo',
   component: WizardCrearModeloComponent,
   decorators: [
     moduleMetadata({
-      imports: [WizardCrearModeloComponentModule],
+      imports: [WizardCrearModeloComponent],
     }),
   ],
   tags: ['autodocs'],
