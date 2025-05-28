@@ -3,5 +3,33 @@
   font-size: 2.5rem;
   font-family: var(--font-family-heading);
   color: var(--primary-100);
-  margin-top: 64px;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.demo-section {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem;
+  background: var(--background-color);
+  position: relative;
+  z-index: 1;
+}
+
+.title-container {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.agentes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
 } 

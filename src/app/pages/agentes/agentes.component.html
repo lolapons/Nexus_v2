@@ -1,1 +1,15 @@
-<div class="pagina-titulo">Agentes</div> 
+<div class="demo-section">
+  <div class="title-container">
+    <h1 class="title">Agentes</h1>
+    <!-- Aquí puedes agregar un buscador o controles si lo necesitas -->
+  </div>
+
+  <div class="agentes-grid">
+    <app-target-model-card
+      [data]="{ nombre: 'Asistente', descripcion: 'Agente especializado en resolver problemas técnicos y proporcionar soporte a usuarios', proveedor: 'OpenAi', modelo: 'gpt-4', fechaCreacion: '15/10/2025' }"
+      (edit)="onEdit()"
+      (copy)="onCopy()"
+      (delete)="onDelete()"
+    ></app-target-model-card>
+  </div>
+</div>

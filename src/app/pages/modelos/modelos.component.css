@@ -8,47 +8,36 @@
 
 .modelos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(431px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2.5rem;
   width: 100%;
-  max-height: calc(100vh - 220px); /* Ajusta según el alto del header y paddings */
+  max-height: calc(100vh - 180px);
   overflow-y: auto;
   padding-bottom: 24px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
+
 .modelos-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 .demo-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 32px;
-  width: 100%;
-  max-width: 1027px;
-  margin: 0 auto;
-  padding: 32px 0;
-  min-height: 100%;
-  box-sizing: border-box;
-  flex: 1 1 auto;
-  height: 100vh;
+  height: 100%;
+  padding: 1rem 2rem;
+  background: var(--background-color);
+  position: relative;
+  z-index: 1;
 }
 
 .title-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 .title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 1.5em;
-  color: var(--black-100);
-  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 app-wizard-crear-modelo {

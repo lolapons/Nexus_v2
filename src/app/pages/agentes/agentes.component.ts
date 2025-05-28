@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./agentes.component.css'],
   standalone: false
 })
-export class AgentesComponent {} 
+export class AgentesComponent {
+  onEdit() {}
+  onCopy() {}
+  onDelete() {}
+} 

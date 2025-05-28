@@ -1,16 +1,29 @@
 .app-container {
-  width: 100%;
+  display: flex;
+  width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  position: relative;
+}
+
+navbar-sep {
+  position: fixed;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+  min-width: 56px;
+  height: 100vh;
+  z-index: 10;
+
 }
 
 .main-content {
-  margin-left: 250px;
-  padding: 2rem;
+  margin-left: 56px;
+  width: calc(100vw - 56px);
   height: 100vh;
   overflow-y: auto;
+  background: var(--background-color);
+  position: relative;
 }
 
-.navbar-sep {
-  margin-right: 50px;
-}
+

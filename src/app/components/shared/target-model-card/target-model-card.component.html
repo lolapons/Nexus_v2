@@ -1,0 +1,42 @@
+<div class="target-model-card">
+  <div class="target-model-card__main">
+    <div class="target-model-card__texts">
+      <div class="target-model-card__header-row">
+        <span class="target-model-card__title">{{ data.nombre }}</span>
+        <div class="target-model-card__actions">
+          <button class="action-btn" (click)="onCopy()" aria-label="Copiar">
+            <!-- SVG fi:copy -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 9H13C14.1046 9 15 9.89543 15 11V20C15 21.1046 14.1046 22 13 22H4C2.89543 22 2 21.1046 2 20V11C2 9.89543 2.89543 9 4 9Z" stroke="var(--black-50)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M19 15H20C20.5304 15 21.0391 14.7893 21.4142 14.4142C21.7893 14.0391 22 13.5304 22 13V4C22 3.46957 21.7893 2.96086 21.4142 2.58579C21.0391 2.21071 20.5304 2 20 2H11C10.4696 2 9.96086 2.21071 9.58579 2.58579C9.21071 2.96086 9 3.46957 9 4V5" stroke="var(--black-50)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="action-btn" (click)="onEdit()" aria-label="Editar">
+            <!-- SVG fi:edit -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13" stroke="var(--black-50)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18.5 2.5C18.8978 2.10218 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.10218 21.5 2.5C21.8978 2.89782 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.10218 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z" stroke="var(--black-50)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="action-btn action-btn--delete" (click)="onDelete()" aria-label="Eliminar">
+            <!-- SVG Iconly/Light/Delete -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.325 9.46826C19.325 9.46826 18.782 16.2033 18.467 19.0403C18.317 20.3953 17.48 21.1893 16.109 21.2143C13.5 21.2613 10.888 21.2643 8.28003 21.2093C6.96103 21.1823 6.13803 20.3783 5.99103 19.0473C5.67403 16.1853 5.13403 9.46826 5.13403 9.46826" stroke="var(--error-100)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20.7082 6.23975H3.75024" stroke="var(--error-100)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973" stroke="var(--error-100)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="target-model-card__desc">{{ data.descripcion }}</div>
+      <div class="target-model-card__row">
+        <span class="target-model-card__provider">Proveedor: {{ data.proveedor }}</span>
+        <span class="target-model-card__model">Modelo: {{ data.modelo }}</span>
+      </div>
+      <div class="target-model-card__subtitle">Agente especializado en resolver problemas técnicos y proporcionar soporte a usuarios</div>
+    </div>
+  </div>
+  <div class="target-model-card__footer">
+    <span class="target-model-card__footer-text">Creado: {{ data.fechaCreacion }}</span>
+  </div>
+</div> 

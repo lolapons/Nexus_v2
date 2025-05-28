@@ -5,6 +5,7 @@ import { SearchComponent } from './search/search/search.component';
 import { LlmTargetComponent } from './llm-target/llm-target/llm-target.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { ButtonComponent } from './button/button/button.component';
+import { TargetModelCardComponent } from './target-model-card/target-model-card.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ButtonComponent } from './button/button/button.component';
     SearchComponent,
     LlmTargetComponent,
     ProgressBarComponent,
-    ButtonComponent
+    ButtonComponent,
+    TargetModelCardComponent
   ],
   imports: [
     CommonModule
@@ -22,7 +24,8 @@ import { ButtonComponent } from './button/button/button.component';
     SearchComponent,
     LlmTargetComponent,
     ProgressBarComponent,
-    ButtonComponent
+    ButtonComponent,
+    TargetModelCardComponent
   ]
 })
 export class SharedModule { } 
