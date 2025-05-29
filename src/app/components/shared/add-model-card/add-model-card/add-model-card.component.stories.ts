@@ -1,6 +1,6 @@
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 import { AddModelCardComponent } from './add-model-card.component';
-import { AddModelCardModule } from '../add-model-card.module';
+import { AddModelCardModule } from './add-model-card.module';
 
 interface AddModelCardProps {
   text: string;

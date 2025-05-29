@@ -29,7 +29,15 @@
 
 .agentes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2.5rem;
   width: 100%;
-} 
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  padding-bottom: 24px;
+  scrollbar-width: none;
+}
+
+.agentes-grid::-webkit-scrollbar {
+  display: none;
+}

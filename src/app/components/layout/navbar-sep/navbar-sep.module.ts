@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarSepComponent } from './navbar-sep/navbar-sep.component';
-import { NavbarItemSepComponent } from './navbar-item-sep/navbar-item-sep.component';
+import { NavbarItemSepModule } from './navbar-item-sep/navbar-item-sep.module';
 
 @NgModule({
   declarations: [
-    NavbarSepComponent,
-    NavbarItemSepComponent
+    NavbarSepComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NavbarItemSepModule
   ],
   exports: [
-    NavbarSepComponent,
-    NavbarItemSepComponent
+    NavbarSepComponent
   ]
 })
 export class NavbarSepModule { } 

@@ -1,31 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddModelCardComponent } from './add-model-card/add-model-card/add-model-card.component';
-import { SearchComponent } from './search/search/search.component';
-import { LlmTargetComponent } from './llm-target/llm-target/llm-target.component';
-import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import { ButtonComponent } from './button/button/button.component';
-import { TargetModelCardComponent } from './target-model-card/target-model-card.component';
+import { AddModelCardModule } from './add-model-card/add-model-card/add-model-card.module';
+import { SearchModule } from './search/search/search.module';
+import { LlmTargetComponentModule } from './llm-target/llm-target/llm-target.module';
+import { ProgressBarModule } from './progress-bar/progress-bar.module';
+import { ButtonModule } from './button/button/button.module';
+import { TargetModelCardModule } from './target-model-card/target-model-card.module';
 
 @NgModule({
-  declarations: [
-    AddModelCardComponent,
-    SearchComponent,
-    LlmTargetComponent,
-    ProgressBarComponent,
-    ButtonComponent,
-    TargetModelCardComponent
-  ],
   imports: [
-    CommonModule
+    CommonModule,
+    AddModelCardModule,
+    SearchModule,
+    LlmTargetComponentModule,
+    ProgressBarModule,
+    ButtonModule,
+    TargetModelCardModule
   ],
   exports: [
-    AddModelCardComponent,
-    SearchComponent,
-    LlmTargetComponent,
-    ProgressBarComponent,
-    ButtonComponent,
-    TargetModelCardComponent
+    AddModelCardModule,
+    SearchModule,
+    LlmTargetComponentModule,
+    ProgressBarModule,
+    ButtonModule,
+    TargetModelCardModule
   ]
 })
 export class SharedModule { } 

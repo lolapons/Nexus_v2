@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { NavbarSepComponent } from './navbar-sep.component';
 import { CommonModule } from '@angular/common';
-import { NavbarItemSepComponent } from '../navbar-item-sep/navbar-item-sep.component';
+import { NavbarItemSepModule } from '../navbar-item-sep/navbar-item-sep.module';
 
 const meta: Meta<NavbarSepComponent> = {
   title: 'Components/NavbarSep',
@@ -10,7 +10,7 @@ const meta: Meta<NavbarSepComponent> = {
   tags: ['autodocs'],
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, NavbarItemSepComponent],
+      imports: [CommonModule, NavbarItemSepModule],
     }),
   ],
   parameters: {

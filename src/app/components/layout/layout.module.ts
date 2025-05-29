@@ -6,7 +6,6 @@ import { LayoutBackgroundModule } from './layout-background/layout-background.mo
 @NgModule({
   imports: [
     CommonModule,
-    NavbarSepModule,
     LayoutBackgroundModule
   ],
   exports: [
@@ -14,4 +13,4 @@ import { LayoutBackgroundModule } from './layout-background/layout-background.mo
     LayoutBackgroundModule
   ]
 })
-export class LayoutModule { } 
+export class LayoutModule { }
