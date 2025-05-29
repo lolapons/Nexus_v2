@@ -1,8 +1,14 @@
 <div class="demo-section">
   <div class="title-container">
     <h1 class="title">Agentes</h1>
-    <!-- Aquí puedes agregar un buscador o controles si lo necesitas -->
-  </div>
+    <app-llm-model-select-card
+  [title]="'GPT-4 para Soporte'"
+  [provider]="'OpenAI'"
+  [model]="'gpt-4o'"
+  [description]="'Modelo de lenguaje avanzado optimizado para tareas de generación de texto, comprensión de lenguaje natural y conversaciones contextuales ...'"
+  [state]="'selected'"
+  (select)="onSelectModelo()"
+></app-llm-model-select-card>
 
   <div class="agentes-grid">
     <app-target-model-card

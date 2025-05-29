@@ -1,0 +1,67 @@
+.llm-model-select-card {
+  width: 100%;
+  min-width: 340px;
+  max-width: 420px;
+  min-height: 70px;
+  border-radius: 8px;
+  background: var(--white, #fff);
+  border: 2px solid var(--grey-30, #E1E2E9);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+  padding: 13px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.llm-model-select-card__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black-100, #000);
+  margin-bottom: 2px;
+}
+.llm-model-select-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.llm-model-select-card__badge {
+  background: var(--success-10, #A2C8AC);
+  color: var(--success-100, #294C2A);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 1px 24px;
+  display: inline-block;
+}
+.llm-model-select-card__model {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--black-50, #53545C);
+  font-weight: 400;
+}
+.llm-model-select-card__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--black-100, #000);
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* Estados */
+.llm-model-select-card.default { border-color: var(--grey-30, #E1E2E9); }
+.llm-model-select-card.hover { border-color: var(--primary-80, #746BC7); }
+.llm-model-select-card.selected { border-color: var(--primary-100, #5347BA); }
+.llm-model-select-card.model-selected {
+  border-color: var(--primary-100, #5347BA);
+  background: var(--primary-10, #D5D2EE);
+}
+.llm-model-select-card.model-selected .llm-model-select-card__title {
+  color: var(--primary-100, #5347BA);
+}
+.llm-model-select-card.model-selected .llm-model-select-card__desc {
+  color: var(--primary-80, #746BC7);
+} 
