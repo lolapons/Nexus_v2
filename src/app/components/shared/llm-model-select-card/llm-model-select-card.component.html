@@ -1,11 +1,13 @@
 <div
   class="llm-model-select-card"
-  [ngClass]="state"
+  [ngClass]="cardState"
   (click)="onClick()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
   tabindex="0"
 >
   <div class="llm-model-select-card__title">{{ title }}</div>
-  <ng-container *ngIf="state !== 'model-selected'">
+  <ng-container *ngIf="cardState !== 'model-selected'">
     <div class="llm-model-select-card__meta">
       <span class="llm-model-select-card__badge">{{ provider }}</span>
       <span class="llm-model-select-card__model">{{ model }}</span>

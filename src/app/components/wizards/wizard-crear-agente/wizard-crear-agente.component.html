@@ -1,0 +1,208 @@
+<div class="wizard-container">
+  <div class="wizard-inner-container">
+    <div class="wizard-crear-agente">
+      <ng-container [ngSwitch]="step">
+        <ng-container *ngSwitchCase="'bienvenido'">
+          <!-- Paso 1: Bienvenido -->
+          <div class="wizard-card wizard-bienvenido">
+          <h1 class="wizard-title-bienvenido">Bienvenido</h1>
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span class="progress-label" [ngClass]="{'active': step === 'bienvenido'}">Bienvenido</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'configuracion-agente'}">Configuración</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'seleccion-llm'}">LLM</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'resumen'}">Resumen</span>
+              </div>
+              <app-progress-indicator [currentStep]="1" [totalSteps]="4"></app-progress-indicator>
+            </div>
+            <div class="wizard-bienvenido-content">
+              <h2 class="wizard-bienvenido-subtitle">Crear un nuevo agente</h2>
+              <p class="wizard-bienvenido-desc">
+                Configura un nuevo agente adaptado a tus necesidades. Podrás definir su identidad, comportamiento y capacidades para que actúe de forma autónoma dentro de tus flujos.
+              </p>
+              <button class="wizard-btn wizard-btn-primary wizard-btn-bienvenido" (click)="nextStep()">
+                Comenzar
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19" stroke="var(--white, #fff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 5L19 12L12 19" stroke="var(--white, #fff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'seleccion-llm'">
+          <!-- Paso 3: Selección de LLM -->
+          <div class="wizard-card wizard-llm">
+            <h2 class="wizard-title">Selección de LLM</h2>
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span class="progress-label" [ngClass]="{'active': step === 'bienvenido'}">Bienvenido</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'configuracion-agente'}">Configuración</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'seleccion-llm'}">LLM</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'resumen'}">Resumen</span>
+              </div>
+              <app-progress-indicator [currentStep]="3" [totalSteps]="4"></app-progress-indicator>
+            </div>
+            <app-search
+              placeholder="Buscar modelos"
+              [(value)]="searchTerm"
+            ></app-search>
+            <div class="wizard-llm-list">
+              <app-llm-model-select-card
+                *ngFor="let model of filteredLlmModels"
+                [title]="model.title"
+                [provider]="model.provider"
+                [model]="model.model"
+                [description]="model.description"
+                [state]="agente.modelo === model ? 'selected' : 'default'"
+                (select)="selectLlmModel(model)"
+              ></app-llm-model-select-card>
+            </div>
+            <div class="wizard-actions">
+              <button class="wizard-btn wizard-btn-outline" (click)="prevStep()" type="button">
+                <!-- SVG flecha izquierda -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 12H5" stroke="var(--primary-100, #5347BA)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 19L5 12L12 5" stroke="var(--primary-100, #5347BA)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Atrás
+              </button>
+              <button class="wizard-btn wizard-btn-primary" (click)="nextStep()" type="button" [disabled]="!agente.modelo">
+                Siguiente
+                <!-- SVG flecha derecha -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19" stroke="var(--white, #fff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 5L19 12L12 19" stroke="var(--white, #fff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'configuracion-agente'">
+          <!-- Paso 2: Configuración del agente -->
+          <div class="wizard-card wizard-config">
+            <h2 class="wizard-title">Configuración del agente</h2>
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span class="progress-label" [ngClass]="{'active': step === 'bienvenido'}">Bienvenido</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'configuracion-agente'}">Configuración</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'seleccion-llm'}">LLM</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'resumen'}">Resumen</span>
+              </div>
+              <app-progress-indicator [currentStep]="2" [totalSteps]="4"></app-progress-indicator>
+            </div>
+            <form class="wizard-form-col">
+              <div class="form-group">
+                <label class="wizard-label">Nombre del agente</label>
+                <input class="wizard-input" type="text" placeholder="Ej: Asistente de Soporte Técnico" [(ngModel)]="agente.nombre" name="nombre" />
+              </div>
+              <div class="form-group">
+                <label class="wizard-label">Descripción</label>
+                <textarea class="wizard-textarea" placeholder="Describe la función y capacidades de este agente ..." [(ngModel)]="agente.descripcion" name="descripcion"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="wizard-label">Comportamiento</label>
+                <app-select-input
+                  [options]="comportamientos"
+                  [(ngModel)]="agente.comportamiento"
+                  name="comportamiento"
+                  width="100%"
+                  placeholder="Seleccione el/los comportamientos que te gustaría que adoptase">
+                </app-select-input>
+              </div>
+              <div class="form-group">
+                <label class="wizard-label">Herramientas</label>
+                <app-select-input
+                  [options]="herramientas"
+                  [(ngModel)]="agente.herramienta"
+                  name="herramienta"
+                  width="100%"
+                  placeholder="Seleccione la/s herramientas que te gustaría que adoptase">
+                </app-select-input>
+              </div>
+            </form>
+            <div class="wizard-actions">
+              <button class="wizard-btn wizard-btn-outline" (click)="prevStep()" type="button">
+                <!-- SVG flecha izquierda -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 12H5" stroke="var(--primary-100, #5347BA)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 19L5 12L12 5" stroke="var(--primary-100, #5347BA)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Atrás
+              </button>
+              <button class="wizard-btn wizard-btn-primary" (click)="nextStep()" type="button">
+                Siguiente
+                <!-- SVG flecha derecha -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19" stroke="var(--white, #fff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 5L19 12L12 19" stroke="var(--white, #fff)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'resumen'">
+          <!-- Paso 4: Resumen -->
+          <div class="wizard-card wizard-resumen">
+            <h2 class="wizard-title">Resumen</h2>
+            <div class="progress-container">
+              <div class="progress-labels">
+                <span class="progress-label" [ngClass]="{'active': step === 'bienvenido'}">Bienvenido</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'configuracion-agente'}">Configuración</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'seleccion-llm'}">LLM</span>
+                <span class="progress-label" [ngClass]="{'active': step === 'resumen'}">Resumen</span>
+              </div>
+              <app-progress-indicator [currentStep]="4" [totalSteps]="4"></app-progress-indicator>
+            </div>
+            <div class="wizard-content">
+              <div class="wizard-header">
+                <h3 class="wizard-subtitle-2">Resumen de la configuración</h3>
+              </div>
+              <div class="summary-box">
+                <div class="summary-grid">
+                  <div class="summary-column">
+                    <div class="summary-item">
+                      <span class="summary-label">Nombre</span>
+                      <span class="summary-value">{{ agente.nombre || 'Sin nombre' }}</span>
+                    </div>
+                    <div class="summary-item">
+                      <span class="summary-label">Comportamiento</span>
+                      <span class="summary-value">{{ agente.comportamiento || '-' }}</span>
+                    </div>
+                  </div>
+                  <div class="summary-column">
+                    <div class="summary-item">
+                      <span class="summary-label">Herramienta</span>
+                      <span class="summary-value">{{ agente.herramienta || '-' }}</span>
+                    </div>
+                    <div class="summary-item">
+                      <span class="summary-label">Modelo</span>
+                      <span class="summary-value">{{ agente.modelo?.title || '-' }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-description">
+                  <span class="summary-label">Descripción</span>
+                  <span class="summary-value">{{ agente.descripcion || '-' }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-actions">
+              <button class="wizard-btn wizard-btn-outline" (click)="prevStep()" type="button">
+                <!-- SVG flecha izquierda -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 12H5" stroke="var(--primary-100, #5347BA)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 19L5 12L12 5" stroke="var(--primary-100, #5347BA)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Atrás
+              </button>
+              <button class="wizard-btn wizard-btn-primary" type="button">
+                Finalizar
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div> 

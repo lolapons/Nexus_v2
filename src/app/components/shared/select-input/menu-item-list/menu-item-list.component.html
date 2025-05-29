@@ -1,0 +1,10 @@
+<div class="menu-item-container" [ngClass]="'menu-item-' + currentState" (click)="onItemClick()" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <div class="inner-container">
+        <div class="icon-container" *ngIf="showIcon">
+            <svg width="20" height="20" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.92424 9.14394L7.85606 11.0758L11.0758 6.56818M16.2273 8.5C16.2273 12.7677 12.7677 16.2273 8.5 16.2273C4.23235 16.2273 0.772727 12.7677 0.772727 8.5C0.772727 4.23235 4.23235 0.772727 8.5 0.772727C12.7677 0.772727 16.2273 4.23235 16.2273 8.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        </div>
+        <span class="option-text">{{ text }}</span>
+    </div>
+</div>

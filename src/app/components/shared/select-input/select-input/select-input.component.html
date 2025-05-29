@@ -1,0 +1,81 @@
+<div class="multi-select-wrapper" [style.width]="width">
+
+    <!-- Sección de añadir nueva opción -->
+    <div class="add-section">
+        <h3 class="section-title">{{ addSectionLabel }}</h3>
+
+        <div class="select-input-wrapper" [ngClass]="'select-input-' + currentState" #dropdown>
+
+            <!-- Input Field -->
+            <div class="input-field" [class.disabled]="disabled || !canAddMore" (click)="toggleDropdown()" (keydown)="onKeydown($event)" tabindex="0" role="combobox" [attr.aria-expanded]="isExpanded" [attr.aria-disabled]="disabled || !canAddMore">
+
+                <!-- Lead Icon + Text -->
+                <div class="lead-icon-text">
+                    <!-- Lead Icon -->
+                    <div class="icon-container" *ngIf="showIcon">
+                        <svg width="20" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.29175 7.09859L0.760563 9L4.29175 10.9014M4.29175 7.09859L9 9.6338L13.7082 7.09859M4.29175 7.09859L0.760563 5.19718L9 0.760563L17.2394 5.19718L13.7082 7.09859M13.7082 7.09859L17.2394 9L13.7082 10.9014M13.7082 10.9014L17.2394 12.8028L9 17.2394L0.760563 12.8028L4.29175 10.9014M13.7082 10.9014L9 13.4366L4.29175 10.9014" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Text -->
+                    <div class="text-container">
+                        <span class="display-text" [class.placeholder]="isPlaceholder">{{ displayText }}</span>
+                    </div>
+                </div>
+
+                <!-- Caret Icon -->
+                <div class="caret-icon" [class.rotated]="isExpanded">
+                    <svg width="20" height="20" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.21053 0.789474L5 5L0.789474 0.789474" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu" *ngIf="isExpanded" role="listbox">
+
+                <!-- Opciones disponibles (clickeables) -->
+                <app-menu-item-list *ngFor="let option of availableOptions; let i = index" [text]="option.label" [selected]="option.value === currentSelection" [disabled]="false" [showIcon]="false" [state]="focusedOptionIndex === i ? 'hover' : (option.value === currentSelection ? 'selected' : 'default')"
+                    (itemClick)="selectOption(option)" (mouseenter)="onOptionHover(i)">
+                </app-menu-item-list>
+
+                <!-- Separador si hay opciones ya seleccionadas -->
+                <div class="dropdown-separator" *ngIf="availableOptions.length > 0 && selectedItems.length > 0"></div>
+
+                <!-- Opciones ya seleccionadas (no clickeables, solo visual) -->
+                <app-menu-item-list *ngFor="let item of selectedItems" [text]="item.label + ' (ya seleccionada)'" [selected]="false" [disabled]="false" [showIcon]="false" [state]="'disabled'" (itemClick)="doNothing()" (mouseenter)="doNothing()">
+                </app-menu-item-list>
+
+                <!-- Mensaje cuando no hay opciones disponibles -->
+                <div class="no-options-text" *ngIf="availableOptions.length === 0 && selectedItems.length === 0">
+                    No hay opciones disponibles
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Button -->
+        <button class="add-button" [disabled]="!canAddCurrent" (click)="addCurrentSelection()" type="button">
+            {{ addButtonText }}
+        </button>
+
+        <!-- Help Text -->
+        <div class="help-text" *ngIf="helpText">{{ helpText }}</div>
+    </div>
+
+    <!-- Sección de items seleccionados (movida debajo del botón) -->
+    <div class="selected-items-section" *ngIf="selectedItems.length > 0">
+        <h3 class="section-title">{{ selectedItemsLabel }}</h3>
+        <div class="selected-items-container">
+            <div class="selected-pill" *ngFor="let item of selectedItems; trackBy: trackByValue" [class.disabled]="disabled">
+                <span class="pill-text">{{ item.label }}</span>
+                <button class="remove-button" (click)="removeSelectedItem(item)" [disabled]="disabled" type="button" [attr.aria-label]="'Remover ' + item.label">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

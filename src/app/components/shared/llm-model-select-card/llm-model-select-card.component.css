@@ -1,7 +1,6 @@
 .llm-model-select-card {
   width: 100%;
   min-width: 340px;
-  max-width: 420px;
   min-height: 70px;
   border-radius: 8px;
   background: var(--white, #fff);
