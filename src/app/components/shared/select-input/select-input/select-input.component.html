@@ -2,7 +2,6 @@
 
     <!-- Sección de añadir nueva opción -->
     <div class="add-section">
-        <h3 class="section-title">{{ addSectionLabel }}</h3>
 
         <div class="select-input-wrapper" [ngClass]="'select-input-' + currentState" #dropdown>
 
@@ -58,10 +57,6 @@
         <button class="add-button" [disabled]="!canAddCurrent" (click)="addCurrentSelection()" type="button">
             {{ addButtonText }}
         </button>
-
-        <!-- Help Text -->
-        <div class="help-text" *ngIf="helpText">{{ helpText }}</div>
-    </div>
 
     <!-- Sección de items seleccionados (movida debajo del botón) -->
     <div class="selected-items-section" *ngIf="selectedItems.length > 0">

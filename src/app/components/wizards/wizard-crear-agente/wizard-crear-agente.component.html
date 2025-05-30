@@ -108,11 +108,8 @@
                   [totalSteps]="4"
                 ></app-progress-indicator>
               </div>
-              <app-search
-                placeholder="Buscar modelos"
-                [(value)]="searchTerm"
-              ></app-search>
-              <div class="wizard-llm-list">
+              <div style="margin-bottom: 32px;"><app-search placeholder="Buscar modelos" [(value)]="searchTerm"></app-search></div>
+              <div class="wizard-llm-list" style="gap: 24px; display: flex; flex-direction: column; margin-bottom: 32px;">
                 <app-llm-model-select-card *ngFor="let model of filteredLlmModels"
                   [title]="model.title"
                   [provider]="model.provider"

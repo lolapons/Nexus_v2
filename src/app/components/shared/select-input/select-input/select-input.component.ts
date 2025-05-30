@@ -28,10 +28,8 @@ export interface DisplayOption extends SelectOption {
 export class SelectInputComponent {
   @Input() label: string = 'Label Text';
   @Input() selectedItemsLabel: string = 'Tiendas seleccionadas';
-  @Input() addSectionLabel: string = 'Añadir tienda';
   @Input() addButtonText: string = 'Añadir';
   @Input() placeholder: string = 'Insert text here';
-  @Input() helpText: string = 'Insert text here to help users.';
   @Input() options: SelectOption[] = [];
   @Input() selectedItems: SelectedItem[] = [];
   @Input() disabled: boolean = false;
