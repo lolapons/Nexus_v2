@@ -1,21 +1,16 @@
 <div class="demo-section">
   <div class="title-container">
     <h1 class="title">Agentes</h1>
-    <app-llm-model-select-card
-  [title]="'GPT-4 para Soporte'"
-  [provider]="'OpenAI'"
-  [model]="'gpt-4o'"
-  [description]="'Modelo de lenguaje avanzado optimizado para tareas de generación de texto, comprensión de lenguaje natural y conversaciones contextuales ...'"
-  [state]="'selected'"
-  (select)="onSelectModelo()"
-></app-llm-model-select-card>
 
-  <div class="agentes-grid">
+    <!-- BUSCADOR -->
+
+  <!-- <div class="agentes-grid">
     <app-target-model-card
       [data]="{ nombre: 'Asistente', descripcion: 'Agente especializado en resolver problemas técnicos y proporcionar soporte a usuarios', proveedor: 'OpenAi', modelo: 'gpt-4', fechaCreacion: '15/10/2025' }"
       (edit)="onEdit()"
       (copy)="onCopy()"
       (delete)="onDelete()"
     ></app-target-model-card>
-  </div>
+  </div> -->
+  <app-wizard-crear-agente></app-wizard-crear-agente>
 </div>

@@ -10,4 +10,5 @@ export class AgentesComponent {
   onEdit() {}
   onCopy() {}
   onDelete() {}
+  onSelectModelo() {}
 } 

@@ -6,7 +6,8 @@ import { LlmTargetComponentModule } from './llm-target/llm-target/llm-target.mod
 import { ProgressBarModule } from './progress-bar/progress-bar.module';
 import { ButtonModule } from './button/button/button.module';
 import { TargetModelCardModule } from './target-model-card/target-model-card.module';
-import { MenuItemListComponent } from './select-input/menu-item-list/menu-item-list.component'; 
+import { MenuItemListComponent } from './select-input/menu-item-list/menu-item-list.component';   
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +16,8 @@ import { MenuItemListComponent } from './select-input/menu-item-list/menu-item-l
     LlmTargetComponentModule,
     ProgressBarModule,
     ButtonModule,
-    TargetModelCardModule
+    TargetModelCardModule,
+    
   ],
   exports: [
     AddModelCardModule,

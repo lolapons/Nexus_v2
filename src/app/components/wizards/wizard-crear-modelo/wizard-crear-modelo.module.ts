@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WizardCrearModeloComponent } from './wizard-crear-modelo/wizard-crear-modelo.component';
 import { SharedModule } from '../../shared/shared.module';
-import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
+import { ProgressIndicatorModule } from '../progress-indicator/progress-indicator.module';
 
 @NgModule({
   declarations: [
     WizardCrearModeloComponent,
-    ProgressIndicatorComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    ProgressIndicatorModule
   ],
   exports: [
     WizardCrearModeloComponent
