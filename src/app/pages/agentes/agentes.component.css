@@ -20,12 +20,6 @@
   margin-bottom: 1.5rem;
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
 
 .agentes-grid {
   display: grid;
