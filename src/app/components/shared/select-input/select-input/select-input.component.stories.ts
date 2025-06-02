@@ -33,10 +33,6 @@ const meta: Meta<SelectInputComponent> = {
       control: 'text',
       description: 'Título de la sección de elementos seleccionados',
     },
-    addSectionLabel: {
-      control: 'text',
-      description: 'Título de la sección para añadir elementos',
-    },
     addButtonText: {
       control: 'text',
       description: 'Texto del botón de añadir',
@@ -44,10 +40,6 @@ const meta: Meta<SelectInputComponent> = {
     placeholder: {
       control: 'text',
       description: 'Texto placeholder cuando no hay selección',
-    },
-    helpText: {
-      control: 'text',
-      description: 'Texto de ayuda mostrado debajo del selector',
     },
     options: {
       control: 'object',
@@ -102,10 +94,8 @@ type Story = StoryObj<SelectInputComponent>;
 export const Empty: Story = {
   args: {
     selectedItemsLabel: 'Tiendas seleccionadas',
-    addSectionLabel: 'Añadir tienda',
     addButtonText: 'Añadir',
     placeholder: 'Selecciona una tienda',
-    helpText: 'Puedes añadir múltiples tiendas a tu selección.',
     options: sampleOptions,
     selectedItems: [],
     disabled: false,
@@ -119,10 +109,7 @@ export const Empty: Story = {
 export const WithSelectedItems: Story = {
   args: {
     selectedItemsLabel: 'Tiendas seleccionadas',
-    addSectionLabel: 'Añadir tienda',
     addButtonText: 'Añadir',
-    placeholder: 'Selecciona una tienda',
-    helpText: 'Puedes añadir múltiples tiendas a tu selección.',
     options: sampleOptions,
     selectedItems: sampleSelectedItems,
     disabled: false,
@@ -136,10 +123,8 @@ export const WithSelectedItems: Story = {
 export const MaxSelections: Story = {
   args: {
     selectedItemsLabel: 'Tiendas seleccionadas',
-    addSectionLabel: 'Añadir tienda',
     addButtonText: 'Añadir',
     placeholder: 'Selecciona una tienda',
-    helpText: 'Máximo 3 tiendas permitidas.',
     options: sampleOptions,
     selectedItems: sampleSelectedItems,
     disabled: false,
@@ -153,10 +138,8 @@ export const MaxSelections: Story = {
 export const NearMaxLimit: Story = {
   args: {
     selectedItemsLabel: 'Tiendas seleccionadas',
-    addSectionLabel: 'Añadir tienda',
     addButtonText: 'Añadir',
     placeholder: 'Selecciona una tienda',
-    helpText: 'Solo puedes seleccionar 1 tienda más.',
     options: sampleOptions,
     selectedItems: [
       { value: 'barcelona-diagonal', label: 'Barcelona Diagonal' },
@@ -175,10 +158,8 @@ export const NearMaxLimit: Story = {
 export const Disabled: Story = {
   args: {
     selectedItemsLabel: 'Tiendas seleccionadas',
-    addSectionLabel: 'Añadir tienda',
     addButtonText: 'Añadir',
     placeholder: 'Selecciona una tienda',
-    helpText: 'El selector está deshabilitado.',
     options: sampleOptions,
     selectedItems: sampleSelectedItems,
     disabled: true,
@@ -192,10 +173,8 @@ export const Disabled: Story = {
 export const WithoutIcon: Story = {
   args: {
     selectedItemsLabel: 'Tiendas seleccionadas',
-    addSectionLabel: 'Añadir tienda',
     addButtonText: 'Añadir',
     placeholder: 'Selecciona una tienda',
-    helpText: 'Selector sin ícono principal.',
     options: sampleOptions,
     selectedItems: sampleSelectedItems,
     disabled: false,
@@ -209,10 +188,8 @@ export const WithoutIcon: Story = {
 export const FullWidth: Story = {
   args: {
     selectedItemsLabel: 'Tiendas seleccionadas',
-    addSectionLabel: 'Añadir tienda',
     addButtonText: 'Añadir',
     placeholder: 'Selecciona una tienda',
-    helpText: 'Selector de ancho completo.',
     options: sampleOptions,
     selectedItems: sampleSelectedItems,
     disabled: false,
@@ -226,10 +203,8 @@ export const FullWidth: Story = {
 export const CustomLabels: Story = {
   args: {
     selectedItemsLabel: 'Equipos seleccionados',
-    addSectionLabel: 'Añadir nuevo equipo',
     addButtonText: 'Agregar equipo',
     placeholder: 'Elige un equipo',
-    helpText: 'Puedes seleccionar varios equipos para el proyecto.',
     options: [
       { value: 'frontend', label: 'Equipo Frontend' },
       { value: 'backend', label: 'Equipo Backend' },
@@ -253,10 +228,8 @@ export const CustomLabels: Story = {
 export const LongList: Story = {
   args: {
     selectedItemsLabel: 'Países seleccionados',
-    addSectionLabel: 'Añadir país',
     addButtonText: 'Añadir',
     placeholder: 'Selecciona un país',
-    helpText: 'Puedes usar las teclas de flecha para navegar.',
     options: [
       { value: 'ar', label: 'Argentina' },
       { value: 'br', label: 'Brasil' },
